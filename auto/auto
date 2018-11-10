@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# for each directory, run each config command
+
+BASEDIR=$(dirname "$0")
+SUBDIRS=$(ls -d $BASEDIR/*/)
+for subdir in $SUBDIRS; do
+    sources=$(ls $subdir)
+    for source in $sources; do
+        source $subdir$source
+    done
+done
