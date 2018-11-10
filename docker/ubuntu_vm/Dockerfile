@@ -9,8 +9,9 @@ RUN apt update && \
     apt-get install -y \
     git vim tmux
 
-# RUN git clone https://github.com/cgbahk/dotfiles.git
-# TODO: load auto config script
+# load auto config script
+RUN git clone https://github.com/cgbahk/dotfiles.git
+RUN dotfiles/auto/auto
 
 # To reduce image size
 RUN apt-get clean
