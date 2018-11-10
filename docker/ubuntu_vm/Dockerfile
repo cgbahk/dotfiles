@@ -11,3 +11,6 @@ RUN apt update && \
 
 # RUN git clone https://github.com/cgbahk/dotfiles.git
 # TODO: load auto config script
+
+# To reduce image size
+RUN apt-get clean
