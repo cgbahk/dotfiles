@@ -2,7 +2,7 @@
 # Usage:
 #   source __/python_venv.sh
 #   or
-#   bash <(curl -s https://raw.githubusercontent.com/cgbahk/dotfiles/master/python_venv.sh)
+#   curl -sL https://raw.githubusercontent.com/cgbahk/dotfiles/master/python_venv.sh > __VENV_TEMP__ && source __VENV_TEMP__ && rm __VENV_TEMP__
 
 venv_name="env"  # TODO: command input customize
 echo "-- Generate venv on ${PWD}/${venv_name}..."
@@ -21,6 +21,7 @@ else
     echo "-- No requirements found..."
 fi
 
+echo "-- Add project directory($(pwd)) to python import path..."
 if [ -z $PYTHONPATH ] ; then
     export PYTHONPATH=$(pwd)
 else
