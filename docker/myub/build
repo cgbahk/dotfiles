@@ -4,4 +4,4 @@
 BASEDIR=$(dirname "$0")
 cd $BASEDIR
 
-docker build -t ubuntu_vm:16.04 .
+docker build -t myub .

@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu
 
 # RUN echo "deb http://kr.archive.ubuntu.com/ubuntu/ xenial main restricted" >> /etc/apt/sources.list
 
