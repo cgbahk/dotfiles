@@ -2,16 +2,16 @@
 
 fname=".bash_aliases"
 if [ -f $HOME/$fname ]; then
-    echo "Error: '$fname' already existed on $HOME"
-    exit 255
+    echo "-- '$fname' detected on '$HOME'..."
+    echo "-- back up '$fname' to '$fname_backup'"
+    mv $HOME/$fname $HOME/${fname}_backup
 fi
 
 echo "-- copy '$fname' to $HOME..."
 BASEDIR=$(dirname "$0")
 cp $BASEDIR/$fname $HOME/$fname
 
-# todo: check '.bashrc' exists
-
+# todo: check '.bashrc' or .bash_profile exists
 echo "-- check '.bashrc' whether it refers '$fname'..."
 ref=$(grep $fname $HOME/.bashrc)
 if [ -n $"ref" ]; then
