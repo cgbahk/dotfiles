@@ -14,5 +14,5 @@ github()
 }
 
 # tree alias
-alias treerepo='tree -I .git -a'
+alias treerepo='tree -I .git -a | less'
 
