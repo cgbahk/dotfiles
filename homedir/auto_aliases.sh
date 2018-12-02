@@ -20,7 +20,7 @@ if [ -n $"ref" ]; then
 fi
 
 echo "-- Add '.bashrc' to include '$fname'..."
-echo "if [ -f ~/.bash_aliases  ]; then; . ~/.bash_aliases; fi" >> $HOME/.bash_test
+echo "if [ -f ~/.bash_aliases  ]; then; . ~/.bash_aliases; fi" >> $HOME/.bashrc
 
 # todo: actually this is not working immediately, but applied to next session
 echo "-- register aliases..."
