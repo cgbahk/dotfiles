@@ -10,8 +10,8 @@ RUN apt update && \
     git vim tmux
 
 # load auto config script
-RUN git clone https://github.com/cgbahk/dotfiles.git
-RUN dotfiles/auto/auto &&\
+RUN git clone https://github.com/cgbahk/dotfiles.git &&\
+    dotfiles/auto/auto &&\
     dotfiles/auto_homedir.sh
 
 # To reduce image size
