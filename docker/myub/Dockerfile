@@ -11,7 +11,8 @@ RUN apt update && \
 
 # load auto config script
 RUN git clone https://github.com/cgbahk/dotfiles.git
-RUN dotfiles/auto/auto
+RUN dotfiles/auto/auto &&\
+    dotfiles/auto_homedir.sh
 
 # To reduce image size
 RUN apt-get clean
