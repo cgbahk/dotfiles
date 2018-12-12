@@ -4,11 +4,13 @@
 #   or
 #   curl -sL https://raw.githubusercontent.com/cgbahk/dotfiles/master/python_venv.sh > __VENV_TEMP__ && source __VENV_TEMP__ && rm __VENV_TEMP__
 
-# TODO: requirement: apt install -y python3-venv
+echo "-- Install python3 + venv..."
+sudo apt -qq install -y python3-venv
 
 venv_name="venv"  # TODO: command input customize
 echo "-- Generate venv on ${PWD}/${venv_name}..."
-python3.6 -m venv ${venv_name} # by default python 3.6 TODO: make this reliable
+python3 -m venv ${venv_name}
+# TODO: stop process when error created. (return 127?)
 
 echo "-- Activate venv..."
 source ${venv_name}/bin/activate
