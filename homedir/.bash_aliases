@@ -1,5 +1,6 @@
 # docker alias
 alias dockerrun='docker run --rm -it'
+alias dockerrunpwd='dockerrun -v ${PWD}:${PWD} -w ${PWD}'
 
 # git alias
 github()
