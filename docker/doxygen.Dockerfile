@@ -16,7 +16,11 @@ RUN wget https://github.com/doxygen/doxygen/archive/${version}.tar.gz && \
 WORKDIR /doxygen-${version}/build
 
 RUN cmake -G "Unix Makefiles" .. && \
-    make && \
-    echo "PATH=$PATH:/doxygen-${version}/build/bin/" >> ~/.bashrc
+    make
 
 WORKDIR /
+COPY doxyfile Doxyfile
+RUN echo "PATH=$PATH:/doxygen-${version}/build/bin/" >> ~/.bashrc && \
+    echo "alias doxyfile='cp /Doxyfile ./Doxyfile'" >> ~/.bash_aliases
+
+RUN apt-get clean
