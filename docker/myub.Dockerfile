@@ -1,10 +1,7 @@
 # myub
 FROM ubuntu
 
-# RUN echo "deb http://kr.archive.ubuntu.com/ubuntu/ xenial main restricted" >> /etc/apt/sources.list
-
 RUN sed -i -e 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.list
-
 
 RUN apt update && \
     apt-get install -y \
@@ -17,3 +14,4 @@ RUN git clone https://github.com/cgbahk/dotfiles.git &&\
 
 # To reduce image size
 RUN apt-get clean
+

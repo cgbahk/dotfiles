@@ -21,3 +21,4 @@ RUN echo "PATH=$PATH:/doxygen/build/bin/" >> ~/.bashrc && \
     echo "alias doxyfile='cp /Doxyfile ./Doxyfile'" >> ~/.bash_aliases
 
 RUN apt-get clean
+
