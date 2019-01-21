@@ -1,5 +1,4 @@
-## Setting for windows develop environment
-
+### Apply `Microsoft.PowerShell_profile.ps1`
 - Procedure
   1. Check `PS C:\> $profile` (It's like `~/.bashrc`)
   1. Check whether the file exists
@@ -8,3 +7,6 @@
   1. Run `set-executionpolicy remotesigned` in administrator mode Powershell
 
 - Reference: https://superuser.com/a/516704
+
+### Beautify PuTTY
+- Take a look at https://github.com/jacktrocinski/pretty-putty 
