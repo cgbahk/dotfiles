@@ -1,6 +1,7 @@
 # docker alias
 alias dockerrun='docker run --rm -it'
 alias dockerrunpwd='dockerrun -v ${PWD}:${PWD} -w ${PWD}'
+alias dockeronce='docker run --rm -v ${PWD}:${PWD} -w ${PWD}'
 alias dockerrmi='docker rmi $(docker images -f "dangling=true" -q)'
 
 # git alias
