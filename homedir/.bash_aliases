@@ -2,6 +2,8 @@
 alias dockerrun='docker run --rm -it'
 alias dockerrunpwd='dockerrun -v ${PWD}:${PWD} -w ${PWD}'
 alias dockeronce='docker run --rm -v ${PWD}:${PWD} -w ${PWD}'
+# TODO yields error for 2 or more running container
+alias dockerexeconly='docker exec -it $(docker ps -q) bash'
 alias dockerrmi='docker rmi $(docker images -f "dangling=true" -q)'
 
 # git alias
