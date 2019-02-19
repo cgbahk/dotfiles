@@ -1,6 +1,6 @@
 # rpi-jenkins
 # forked from https://github.com/kosmoflyko/rpi-jenkins
-FROM resin/rpi-raspbian:latest
+FROM resin/rpi-raspbian:stretch
 
 # Get system up to date and install deps.
 RUN apt-get update; apt-get --yes upgrade; apt-get --yes install \
