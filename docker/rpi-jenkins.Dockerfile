@@ -30,6 +30,7 @@ ENV JENKINS_HOME ${JENKINS_HOME}
 RUN mkdir -p ${JENKINS_HOME}
 RUN useradd --no-create-home --shell /bin/sh jenkins
 RUN chown -R jenkins:jenkins ${JENKINS_HOME}
+# TODO set specific version
 ADD http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war /usr/local/jenkins.war
 RUN chmod 644 /usr/local/jenkins.war
 
