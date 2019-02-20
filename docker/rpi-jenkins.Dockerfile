@@ -39,6 +39,10 @@ VOLUME ${JENKINS_HOME}
 # install necessary tools
 RUN apt-get update && apt-get install -y git ssh
 
+# install docker (in docker)
+RUN curl -s https://get.docker.com | bash -s
+RUN usermod -aG docker jenkins
+
 ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/local/jenkins.war"]
 EXPOSE 8080
 CMD [""]
