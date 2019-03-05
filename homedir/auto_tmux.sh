@@ -1,8 +1,8 @@
 #! /bin/bash
 
-BASEDIR=$(dirname "$0")
-# todo: backup existing .tmux.conf first
-cp $BASEDIR/.tmux.conf $HOME/.tmux.conf
-
-# for immediate refresh, run this. 
-#tmux source-file $HOME/.tmux.conf
+# github@tony/tmux-config
+git clone --recursive https://github.com/tony/tmux-config.git ~/.tmux
+if [ -f ~/.tmux.conf ]; then
+    mv ~/.tmux.conf ~/.tmux.conf.backup
+fi
+ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
