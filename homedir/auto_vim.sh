@@ -1,5 +1,20 @@
 #! /bin/bash
 
-# TODO check whether installed already
-git clone --depth=1 https://github.com/cgbahk/vimrc.git ~/.vim_runtime
+VIM_RUNTIME=~/.vim_runtime
+VIMRC_REPO="https://github.com/cgbahk/vimrc"
+
+mkdir -p ${VIM_RUNTIME}
+cd ${VIM_RUNTIME}
+ORIGIN_URL=$(git remote get-url origin)
+
+if [ $? -ne 0 ]; then
+  git clone --depth=1 ${VIMRC_REPO} ${VIM_RUNTIME}
+elif echo ${ORIGIN_URL} | grep -q "cgbahk/vimrc"; then
+  git pull
+  git checkout downstream
+else
+  git remote set-url origin ${VIMRC_REPO}
+  git pull
+  git checkout downstream
+fi
 sh ~/.vim_runtime/install_awesome_vimrc.sh
