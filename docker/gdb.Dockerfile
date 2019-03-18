@@ -5,7 +5,7 @@ RUN sed -i -e 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.li
 
 RUN apt update && \
     apt-get install -y \
-    git vim g++ gdb
+    git vim build-essential gdb
 
 # load auto config script
 RUN git clone https://github.com/cgbahk/dotfiles.git &&\
