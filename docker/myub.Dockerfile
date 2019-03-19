@@ -1,4 +1,6 @@
 # myub
+#   collection of almost all packages
+#   virtual development environment
 FROM ubuntu
 
 RUN sed -i -e 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.list
