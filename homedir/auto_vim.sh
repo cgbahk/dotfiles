@@ -5,6 +5,7 @@ VIMRC_REPO="https://github.com/cgbahk/vimrc"
 
 mkdir -p ${VIM_RUNTIME}
 cd ${VIM_RUNTIME}
+# TODO remove error message for some case,as it is not actually error for this
 ORIGIN_URL=$(git remote get-url origin)
 
 if [ $? -ne 0 ]; then
