@@ -17,6 +17,3 @@ github()
     fi
 }
 alias gitlogb='git log --oneline --graph --branches=*'
-
-# tree alias
-alias treerepo='tree -I .git -aC | more'
