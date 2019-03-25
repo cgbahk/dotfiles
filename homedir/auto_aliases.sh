@@ -1,10 +1,11 @@
 #! /bin/bash
 
 fname=".bash_aliases"
+fname_backup="${fname}_backup"
 if [ -f $HOME/$fname ]; then
     echo "-- '$fname' detected on '$HOME'..."
     echo "-- back up '$fname' to '$fname_backup'"
-    mv $HOME/$fname $HOME/${fname}_backup
+    mv $HOME/$fname $HOME/${fname_backup}
 fi
 
 echo "-- copy '$fname' to $HOME..."
