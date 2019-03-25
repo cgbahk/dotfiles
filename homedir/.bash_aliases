@@ -18,3 +18,7 @@ github()
     fi
 }
 alias gitlogb='git log --oneline --graph --branches=*'
+
+# grep & find
+alias mgrep='grep -rn . -ie'
+alias mfind='find . -name'
