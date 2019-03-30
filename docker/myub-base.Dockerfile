@@ -5,6 +5,10 @@ FROM ubuntu
 
 RUN sed -i -e 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.list
 
+# Enable man
+RUN sed -i -e 's/path-exclude/#path-exclude/g' /etc/dpkg/dpkg.cfg.d/excludes
+RUN apt update && apt install -y man
+
 RUN apt update && apt install -y git
 RUN apt update && apt install -y vim
 RUN apt update && apt install -y tmux
