@@ -22,3 +22,6 @@ alias gitlogb='git log --oneline --graph --branches=*'
 # grep & find
 alias mgrep='grep -rn . -ie'
 alias mfind='find . -name'
+
+# apt
+alias mapt='apt update && apt install -y'
