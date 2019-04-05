@@ -29,14 +29,14 @@ alias mapt='apt update && apt install -y'
 # at alias: it wraps command at specific directory and turn back
 at()
 {
-  pushd $1
+  pushd $1 >> /dev/null
   shift
   # TODO This is work-around. Found better solution
   ftemp="$HOME/.at_alias_temp"
   echo $* > ${ftemp}
   source ${ftemp}
   rm ${ftemp}
-  popd
+  popd >> /dev/null
 }
 
 # custom alias by project
