@@ -38,3 +38,15 @@ at()
   rm ${ftemp}
   popd
 }
+
+# custom alias by project
+mmake()
+{
+  if [ -f .idea/Makefile ]; then
+    make -f .idea/Makefile $@
+  elif [ -f .vscode/Makefile ]; then
+    make -f .vscode/Makefile $@
+  else
+    echo "No matching local makefile"
+  fi
+}
