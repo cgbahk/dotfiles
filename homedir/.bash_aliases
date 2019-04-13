@@ -20,7 +20,19 @@ github()
 alias gitlogb='git log --oneline --graph --branches=*'
 
 # grep & find
-alias mgrep='grep -rn . -ie'
+mgrep()
+{
+  if [ $# == 1 ]; then
+    grep -rn . -ie $1
+  else
+    if [ ! -d "$1" ]; then
+      echo "$1 is not directory!"
+      return
+    fi
+    grep -rn $1 -ie $2
+  fi
+}
+# TODO Change mfind similar to mgrep. This is rather complicated than mgrep
 alias mfind='find . -name'
 
 # apt
