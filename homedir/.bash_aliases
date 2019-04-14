@@ -12,6 +12,7 @@ alias dockeronce='docker run --rm -v ${PWD}:${PWD} -w ${PWD}'
 # TODO yields error for 2 or more running container
 alias dockerexeconly='docker exec -it $(docker ps -q) bash'
 alias dockerrmi='docker rmi $(docker images -f "dangling=true" -q)'
+alias dockerrm='docker rm $(docker ps -qf status=exited)'
 
 # git alias
 github()
