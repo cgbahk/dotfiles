@@ -69,3 +69,8 @@ mmake()
     echo "No matching local makefile"
   fi
 }
+
+################################################################################
+# Bash prompt
+export GITAWAREPROMPT=~/.git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
