@@ -1,3 +1,10 @@
+#!/bin/bash
+# Bash configuration setting
+#   file name is '.bash_aliases' but used as it is sourced by almost .bashrc or .bash_profile
+
+################################################################################
+# command line alias
+
 # docker alias
 alias dockerrun='docker run --rm -it'
 alias dockerrunpwd='dockerrun -v ${PWD}:${PWD} -w ${PWD}'
