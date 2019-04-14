@@ -5,5 +5,4 @@ FROM myub-base
 
 # load auto config script
 RUN git clone https://github.com/cgbahk/dotfiles.git &&\
-    dotfiles/auto/auto &&\
     dotfiles/auto_homedir.sh
