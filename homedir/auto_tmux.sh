@@ -18,4 +18,5 @@ else
   git checkout downstream
 fi
 
+rm ~/.tmux.conf
 ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
