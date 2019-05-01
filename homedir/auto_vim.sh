@@ -9,7 +9,7 @@ cd ${VIM_RUNTIME}
 ORIGIN_URL=$(git remote get-url origin)
 
 if [ $? -ne 0 ]; then
-  git clone --depth=1 ${VIMRC_REPO} ${VIM_RUNTIME}
+  git clone ${VIMRC_REPO} ${VIM_RUNTIME}
 elif echo ${ORIGIN_URL} | grep -q "cgbahk/vimrc"; then
   git pull
   git checkout downstream
