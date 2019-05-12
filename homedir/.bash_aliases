@@ -27,6 +27,7 @@ github()
 }
 alias gitlogb='git log --oneline --graph --branches=*'
 alias gitlog='git log --pretty=format:"%h%x09%ad%x09%an%x09%s"'
+alias gitdiff='git diff --cached'
 
 # grep & find
 mgrep()
