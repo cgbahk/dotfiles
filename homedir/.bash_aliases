@@ -3,9 +3,8 @@
 #   file name is '.bash_aliases' but used as it is sourced by almost .bashrc or .bash_profile
 
 ################################################################################
-# command line alias
-
 # docker alias
+
 alias dockerrun='docker run --rm -it'
 alias dockerrunpwd='dockerrun -v ${PWD}:${PWD} -w ${PWD}'
 alias dockeronce='docker run --rm -v ${PWD}:${PWD} -w ${PWD}'
@@ -14,7 +13,9 @@ alias dockerexeconly='docker exec -it $(docker ps -q) bash'
 alias dockerrmi='docker rmi $(docker images -f "dangling=true" -q)'
 alias dockerrm='docker rm $(docker ps -qf status=exited)'
 
+################################################################################
 # git alias
+
 github()
 {
   repo="https://github.com/$1"
@@ -28,6 +29,12 @@ github()
 alias gitlogb='git log --oneline --graph --branches=*'
 alias gitlog='git log --pretty=format:"%h%x09%ad%x09%an%x09%s"'
 alias gitdiff='git diff --cached'
+
+gitpush() {
+  # Based on `git-aware-prompt/prompt.sh`
+  branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  git push -u origin $branch
+}
 
 # grep & find
 mgrep()
