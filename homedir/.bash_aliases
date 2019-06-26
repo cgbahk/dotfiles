@@ -95,6 +95,18 @@ mmake()
 
 
 ######################################################################
+# Simple web server deploy
+
+deploy-httpd()
+{
+docker run -d --rm \
+  -p $1:80 \
+  -v $2:/usr/local/apache2/htdocs/ \
+  httpd
+}
+
+
+######################################################################
 # Bash prompt
 
 export GITAWAREPROMPT=~/.git-aware-prompt
