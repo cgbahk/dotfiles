@@ -2,7 +2,8 @@
 # Bash configuration setting
 #   file name is '.bash_aliases' but used as it is sourced by almost .bashrc or .bash_profile
 
-################################################################################
+
+######################################################################
 # docker alias
 
 alias dockerrun='docker run --rm -it'
@@ -13,7 +14,8 @@ alias dockerexeconly='docker exec -it $(docker ps -q) bash'
 alias dockerrmi='docker rmi $(docker images -f "dangling=true" -q)'
 alias dockerrm='docker rm $(docker ps -qf status=exited)'
 
-################################################################################
+
+######################################################################
 # git alias
 
 github()
@@ -44,7 +46,9 @@ gitbranch()
     refs/heads/ \
     --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 }
-################################################################################
+
+
+######################################################################
 # grep & find
 mgrep()
 {
@@ -89,7 +93,9 @@ mmake()
   fi
 }
 
-################################################################################
+
+######################################################################
 # Bash prompt
+
 export GITAWAREPROMPT=~/.git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
