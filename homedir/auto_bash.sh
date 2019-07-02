@@ -22,9 +22,6 @@ else
   echo "-- Please edit '.bashrc' or '.bash_profile' to include '$fname' manually"
 fi
 
-# Download bash prompt
-git clone https://github.com/cgbahk/git-aware-prompt.git ~/.git-aware-prompt
-
 # TODO: actually this is not working immediately, but applied to next session
 echo "-- register aliases..."
 source $HOME/$fname

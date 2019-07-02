@@ -108,10 +108,3 @@ docker run -d --rm \
   -v $2:/usr/local/apache2/htdocs/ \
   httpd
 }
-
-
-######################################################################
-# Bash prompt
-
-export GITAWAREPROMPT=~/.git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
