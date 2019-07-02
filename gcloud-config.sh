@@ -35,7 +35,8 @@ extra_setting()
   echo "if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi" >> $HOME/.bashrc
 
   # for tmux
-  echo "set status on" >> $HOME/.tmux/.tmux.conf
+  echo "set-option -g status on" >> $HOME/.tmux/.tmux.conf
+  echo "set -g status-left '#S'" >> $HOME/.tmux/.tmux.conf
 }
 
 set -x
