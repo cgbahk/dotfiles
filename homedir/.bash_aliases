@@ -52,15 +52,19 @@ gitbranch()
 # grep & find
 mgrep()
 {
+  # TODO exclude .gitignore list
+  exclude_option=(--exclude-dir={.git,./build})
   if [ $# == 1 ]; then
-    grep -rn . -ie $1
+    search_dir=.
   else
     if [ ! -d "$1" ]; then
       echo "$1 is not directory!"
       return
     fi
-    grep -rn $1 -ie $2
+    search_dir=$1
+    shift
   fi
+  grep -rn ${exclude_option[@]} $search_dir -ie $1
 }
 # TODO Change mfind similar to mgrep. This is rather complicated than mgrep
 alias mfind='find . -name'
