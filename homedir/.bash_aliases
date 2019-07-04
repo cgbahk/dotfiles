@@ -24,8 +24,10 @@ github()
   # todo: --recursive?
   if [ -z "$2" ]; then
       git clone $repo
+      cd $(basename $1)
   else
       git clone $repo "$2"
+      cd $2
   fi
 }
 alias gitlogb='git log --oneline --graph --branches=*'
