@@ -33,6 +33,7 @@ extra_setting()
 {
   # for bash
   echo "if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi" >> $HOME/.bashrc
+  echo "export PS1=\"\$PS1\\n>>> \"" >> $HOME/.bashrc
 
   # for tmux
   echo "set-option -g status on" >> $HOME/.tmux/.tmux.conf
