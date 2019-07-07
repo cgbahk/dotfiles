@@ -110,3 +110,9 @@ docker run -d --rm \
   -v $2:/usr/local/apache2/htdocs/ \
   httpd
 }
+
+
+######################################################################
+# vim command line
+
+alias vimyaml="vim -c 'se syntax=yaml' -c 'se foldmethod=indent'"
