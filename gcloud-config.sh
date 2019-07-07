@@ -38,6 +38,13 @@ extra_setting()
   # for tmux
   echo "set-option -g status on" >> $HOME/.tmux/.tmux.conf
   echo "set -g status-left '#S'" >> $HOME/.tmux/.tmux.conf
+
+  # kubectl completion
+  mkdir -p ~/.kube
+  kubectl completion bash > ~/.kube/completion.bash.inc
+  printf "
+  source '$HOME/.kube/completion.bash.inc'
+  " >> $HOME/.bashrc
 }
 
 set -x
