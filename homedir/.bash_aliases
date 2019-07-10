@@ -55,6 +55,7 @@ gitbranch()
 mgrep()
 {
   # TODO exclude .gitignore list
+  # This does not work as intended
   exclude_option=(--exclude-dir={.git,./build})
   if [ $# == 1 ]; then
     search_dir=.
