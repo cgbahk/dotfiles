@@ -117,3 +117,7 @@ docker run -d --rm \
 # vim command line
 
 alias vimyaml="vim -c 'se syntax=yaml' -c 'se foldmethod=indent'"
+vimreview()
+{
+  vim -p1 $(git status --porcelain | sed s/^...//)
+}
