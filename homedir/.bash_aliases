@@ -34,7 +34,8 @@ alias gitlogb='git log --oneline --graph --branches=*'
 alias gitlog='git log --pretty=format:"%h%x09%ad%x09%an%x09%s"'
 alias gitdiff='git diff --cached'
 
-gitpush() {
+gitpush()
+{
   # Based on `git-aware-prompt/prompt.sh`
   branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   git push -u origin $branch
