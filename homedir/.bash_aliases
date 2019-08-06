@@ -50,6 +50,10 @@ gitbranch()
     --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 }
 
+# clear all
+# TODO make it safer
+alias gitclear='git checkout -- . && git clean -df'
+
 
 ######################################################################
 # grep & find
