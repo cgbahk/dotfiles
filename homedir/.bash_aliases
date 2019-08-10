@@ -126,3 +126,9 @@ vimreview()
 {
   vim -p1 $(git status --porcelain | sed s/^...//)
 }
+
+vimprev()
+{
+  prev=$(history | tail -2 | head -1 | cut -c8-999)
+  eval $prev | vim $@ -
+}
