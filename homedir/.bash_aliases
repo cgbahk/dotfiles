@@ -132,3 +132,12 @@ vimprev()
   prev=$(history | tail -2 | head -1 | cut -c8-999)
   eval $prev | vim $@ -
 }
+
+
+######################################################################
+# etc.
+
+stderred()
+{
+  $@ 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" >&2; done)
+}
