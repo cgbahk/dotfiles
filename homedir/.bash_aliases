@@ -14,6 +14,8 @@ alias dockerexeconly='docker exec -it $(docker ps -q) bash'
 alias dockerrmi='docker rmi $(docker images -f "dangling=true" -q)'
 alias dockerrm='docker rm $(docker ps -qf status=exited)'
 
+export MY_DOCKER_GDB_OPTION="--cap-add=SYS_PTRACE --security-opt seccomp=unconfined"
+
 
 ######################################################################
 # git alias
