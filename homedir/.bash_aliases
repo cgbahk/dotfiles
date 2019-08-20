@@ -19,6 +19,7 @@ export MY_DOCKER_GDB_OPTION="--cap-add=SYS_PTRACE --security-opt seccomp=unconfi
 
 ######################################################################
 # git alias
+# TODO Move git alias into git's alias, e.g. git hub / git clear
 
 github()
 {
@@ -35,6 +36,9 @@ github()
 alias gitlogb='git log --oneline --graph --branches=*'
 alias gitlog='git log --pretty=format:"%h%x09%ad%x09%an%x09%s"'
 alias gitdiff='git diff --cached'
+
+# TODO
+# _get_current_branch()
 
 gitpush()
 {
@@ -55,6 +59,21 @@ gitbranch()
 # clear all
 # TODO make it safer
 alias gitclear='git checkout -- . && git clean -df'
+
+# Remove current branch
+gitrmb()
+{
+  branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+
+  if [ $branch == "master" ]; then
+    echo "Cannot remove master branch"
+    return
+  fi
+
+  gitclear
+  git checkout master
+  git branch -D $branch
+}
 
 
 ######################################################################
