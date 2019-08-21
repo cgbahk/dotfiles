@@ -135,6 +135,7 @@ deploy-httpd()
 docker run -d --rm \
   -p $1:80 \
   -v $2:/usr/local/apache2/htdocs/ \
+  --name $3 \
   httpd
 }
 
