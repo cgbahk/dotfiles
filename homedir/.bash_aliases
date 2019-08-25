@@ -8,6 +8,7 @@
 
 alias dockerrun='docker run --rm -it'
 alias dockerrunpwd='dockerrun -v ${PWD}:${PWD} -w ${PWD}'
+alias dockerrunuser='dockerrunpwd -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -u=$(id -u $USER):$(id -g $USER)'
 alias dockeronce='docker run --rm -v ${PWD}:${PWD} -w ${PWD}'
 # TODO yields error for 2 or more running container
 alias dockerexeconly='docker exec -it $(docker ps -q) bash'
