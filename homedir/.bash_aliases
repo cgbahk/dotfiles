@@ -150,6 +150,11 @@ vimreview()
   vim -p1 $(git status --porcelain | sed s/^...//)
 }
 
+vimcommit()
+{
+  vim -p1 $(git log --name-only --format="" -1)
+}
+
 vimprev()
 {
   prev=$(history | tail -2 | head -1 | cut -c8-999)
