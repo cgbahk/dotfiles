@@ -172,6 +172,11 @@ vimprev()
   eval $prev | vim $@ -
 }
 
+vimrebase()
+{
+  vim -p1 $(git status -s | grep UU | awk '{print $2}')
+}
+
 
 ######################################################################
 # etc.
