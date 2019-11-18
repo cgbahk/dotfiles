@@ -17,6 +17,17 @@ alias dockerrm='docker rm $(docker ps -qf status=exited)'
 
 export MY_DOCKER_GDB_OPTION="--cap-add=SYS_PTRACE --security-opt seccomp=unconfined"
 
+function docker_cleanup()
+{
+  # Newly created files during during docker run can have different ownership.
+  # Let's change owner of all files under current directory
+  OWNER_UID=$(stat -c "%u" $PWD)
+  OWNER_GID=$(stat -c "%g" $PWD)
+
+  CMD="chown -R $OWNER_UID:$OWNER_GID $PWD"
+  dockerrunpwd ubuntu $CMD
+}
+
 
 ######################################################################
 # git alias
