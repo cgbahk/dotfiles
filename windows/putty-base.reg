@@ -1,14 +1,5 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_CURRENT_USER\Software\SimonTatham]
-
-[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY]
-
-[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Jumplist]
-"Recent sessions"=hex(7):00,00
-
-[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions]
-
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base]
 "Present"=dword:00000001
 "HostName"=""
