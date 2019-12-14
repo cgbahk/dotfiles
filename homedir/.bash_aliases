@@ -158,7 +158,8 @@ docker run -d --rm \
 alias vimyaml="vim -c 'se syntax=yaml' -c 'se foldmethod=indent'"
 vimchanged()
 {
-  vim -p1 $(git status --porcelain | sed s/^...//)
+  local gitroot=$(git rev-parse --show-toplevel)
+  vim -p1 $(git status --porcelain | sed s%^...%${gitroot}/%)
 }
 
 vimcommit()
