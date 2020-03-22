@@ -8,7 +8,11 @@ CURRENT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOCKER_MOUNT_DIRECTORY=/mount
 DOCKER_WORKSPACE=/workspace
 DOCKER_CONTAINER_NAME=s-tui-builder
-HOST_S_TUI_DIR=~/lab
+if [[ -z $1 ]]; then
+  HOST_S_TUI_DIR=~/lab
+else
+  HOST_S_TUI_DIR=$1
+fi
 
 docker run \
   --name ${DOCKER_CONTAINER_NAME} \

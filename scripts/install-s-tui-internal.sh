@@ -11,5 +11,5 @@ ${PIP} install urwid psutil pyinstaller
 git clone https://github.com/amanusk/s-tui ${DOCKER_WORKSPACE}
 pushd ${DOCKER_WORKSPACE}
 
-git checkout optimized
+git checkout v1.0.0
 pyinstaller s_tui/s_tui.py
