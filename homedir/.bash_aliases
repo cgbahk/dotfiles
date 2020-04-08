@@ -87,6 +87,9 @@ gitrmb()
   git branch -D $branch
 }
 
+# Stash all except staged
+alias gitstash='git stash --keep-index --include-untracked'
+
 
 ######################################################################
 # grep & find
