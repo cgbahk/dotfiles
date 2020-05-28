@@ -192,6 +192,8 @@ stderred()
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse -m'
 
+export PATH=$PATH:${HOME}/go/bin
+
 
 ######################################################################
 # Github CLI completion
