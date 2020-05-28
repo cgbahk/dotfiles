@@ -181,6 +181,11 @@ vimrebase()
   vim -p1 $(git status -s | grep -E "UU|AA" | awk '{print $2}')
 }
 
+vimfzf()
+{
+  vim $(fzf)
+}
+
 
 ######################################################################
 # etc.
