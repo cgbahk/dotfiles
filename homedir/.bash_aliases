@@ -201,7 +201,12 @@ export PATH=$PATH:${HOME}/go/bin
 
 
 ######################################################################
-# Github CLI completion
+# Github CLI
+
+ghissue ()
+{
+  gh issue view --web $1 > /dev/null 2>&1
+}
 
 if [[ -n $(which gh) ]]; then
   eval "$(gh completion -s bash)"
