@@ -2,8 +2,12 @@
   "settingsVersion": "1.66",
   "exclusionRules": [
     {
-      "pattern": "https?://mail.google.com/*",
-      "passKeys": ""
+      "pattern": "https?://github.com/*",
+      "passKeys": "j"
+    },
+    {
+      "pattern": "https?://github.com/*",
+      "passKeys": "k"
     }
   ],
   "filterLinkHints": false,
