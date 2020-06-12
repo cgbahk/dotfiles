@@ -106,6 +106,13 @@ gitrebase()
   git rebase master
 }
 
+# git commit --amend --no-edit
+gitcommitamend()
+{
+  # TODO Do not commit if commit message have signed-off msg
+  git commit --amend --no-edit $@
+}
+
 
 ######################################################################
 # grep & find
