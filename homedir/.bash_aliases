@@ -90,6 +90,22 @@ gitrmb()
 # Stash all except staged
 alias gitstash='git stash --keep-index --include-untracked'
 
+# Update master and rebase current branch to it
+gitrebase()
+{
+  branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+
+  if [ $branch == "master" ]; then
+    echo "Cannot rebase master branch"
+    return
+  fi
+
+  git checkout master
+  git pull
+  git checkout $branch
+  git rebase master
+}
+
 
 ######################################################################
 # grep & find
