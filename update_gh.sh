@@ -1,7 +1,14 @@
 #!/bin/bash
 
-# TODO Check argc
+set -e
+
 GH_VERSION=$1
+
+if [[ -z ${GH_VERSION} ]]; then
+  echo "[ERROR] Provide gh version to install"
+  exit 1;
+fi
+
 # TODO Check system arch
 # TODO Get latest version automatically
 #      Ref: https://bit.ly/2XGRD0d
