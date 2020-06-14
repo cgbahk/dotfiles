@@ -30,7 +30,7 @@
   "regexFindMode": false,
   "ignoreKeyboardLayout": false,
   "scrollStepSize": 60,
-  "smoothScroll": true,
+  "smoothScroll": false,
   "grabBackFocus": false,
   "searchEngines": [
     "#START",
