@@ -8,6 +8,14 @@
     {
       "pattern": "https?://github.com/*",
       "passKeys": "k"
+    },
+    {
+      "pattern": "https?://www.reddit.com/*",
+      "passKeys": "j"
+    },
+    {
+      "pattern": "https?://www.reddit.com/*",
+      "passKeys": "k"
     }
   ],
   "filterLinkHints": false,
