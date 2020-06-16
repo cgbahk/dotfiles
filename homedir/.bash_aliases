@@ -113,6 +113,13 @@ gitcommitamend()
   git commit --amend --no-edit $@
 }
 
+gitextract()
+{
+  read -p "Branch name? " branch
+  git checkout -b $branch
+  git reset HEAD^
+}
+
 
 ######################################################################
 # grep & find
