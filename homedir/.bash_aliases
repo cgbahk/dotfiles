@@ -120,6 +120,10 @@ gitextract()
   git reset HEAD^
 }
 
+# TODO echo as well
+# TODO remove newline
+alias githash='git rev-parse --short HEAD | xclip -sel clip'
+
 
 ######################################################################
 # grep & find
