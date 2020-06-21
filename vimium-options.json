@@ -16,6 +16,10 @@
     {
       "pattern": "https?://www.reddit.com/*",
       "passKeys": "k"
+    },
+    {
+      "pattern": "https?://www.youtube.com/*",
+      "passKeys": "f"
     }
   ],
   "filterLinkHints": false,
