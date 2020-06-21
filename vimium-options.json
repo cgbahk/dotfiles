@@ -40,6 +40,7 @@
     "#START",
     "\nw: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n#",
     "\ng: https://www.google.com/search?q=%s Google\n#",
+    "\ngh: https://github.com/search?q=%s GitHub\n#",
     "END"
   ],
   "searchUrl": "https://www.google.com/search?q=",
