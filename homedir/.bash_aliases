@@ -124,6 +124,36 @@ gitextract()
 # TODO remove newline
 alias githash='git rev-parse --short HEAD | xclip -sel clip'
 
+alias gitrv=gitreview
+gitreview()
+{
+  local branch=$1
+  if [[ -z ${branch} ]]; then
+    echo "ERROR! Branch name is not provided."
+    return 1
+  fi
+
+  local proper_branch=${branch}
+  proper_branch=$(echo ${proper_branch} | tr ":" "/")
+  proper_branch=$(echo ${proper_branch} | sed s/ch-bahk/origin/g)
+  proper_branch=$(echo ${proper_branch} | sed s/cgbahk/origin/g)
+
+  local git_user_name=$(echo ${proper_branch} | cut -d'/' -f1)
+
+  echo
+  echo "Checking out for review..."
+  echo
+
+  if [[ -z $(git remote | grep ${git_user_name}) ]]; then
+    echo "ERROR! Git user's fork is not on local."
+    return 1
+  fi
+
+  git pull && git fetch ${git_user_name}
+  git checkout --track ${proper_branch}
+  git reset $(git merge-base $(git rev-parse ${proper_branch}) $(git rev-parse master))
+}
+
 
 ######################################################################
 # grep & find
