@@ -5,18 +5,31 @@ set -e
 GH_VERSION=$1
 
 if [[ -z ${GH_VERSION} ]]; then
-  echo "[ERROR] Provide gh version to install"
-  exit 1;
+  # TODO Remove 'jq' dependency
+  #      Ref: https://bit.ly/2XGRD0d
+  if [[ -z $(which jq) ]]; then
+    echo "ERROR! 'jq' is required to get latest version"
+    exit 1
+  fi
+
+  GH_VERSION=$(curl -s https://api.github.com/repos/cli/cli/releases/latest | jq -r '.tag_name')
 fi
 
+if [[ -z ${GH_VERSION} ]]; then
+  echo "ERROR! 'gh' version is not provided"
+  exit 1
+fi
+
+echo "Try to download and install gh ${GH_VERSION}"
+
 # TODO Check system arch
-# TODO Get latest version automatically
-#      Ref: https://bit.ly/2XGRD0d
-GH_DEB_FILENAME=gh_${GH_VERSION}_linux_amd64.deb
-GH_RELEASE_URL=https://github.com/cli/cli/releases/download/v${GH_VERSION}/${GH_DEB_FILENAME}
+GH_DEB_FILENAME=gh_${GH_VERSION:1}_linux_amd64.deb
+GH_RELEASE_URL=https://github.com/cli/cli/releases/download/${GH_VERSION}/${GH_DEB_FILENAME}
+
+echo "(${GH_RELEASE_URL})"
 
 cd $(mktemp -d)
 # TODO Check whether URL exists
-wget ${GH_RELEASE_URL}
+wget -q ${GH_RELEASE_URL}
 
 sudo dpkg -i ${GH_DEB_FILENAME}
