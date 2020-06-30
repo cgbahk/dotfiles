@@ -259,7 +259,7 @@ stderred()
   $@ 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" >&2; done)
 }
 
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse -m'
+export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
 
 export PATH=$PATH:${HOME}/go/bin
 
