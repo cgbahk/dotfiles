@@ -8,6 +8,9 @@ setopt histignorealldups sharehistory
 
 # Use vi keybindings
 bindkey -v
+# Default behavior of '^R' is hidden by vi keybindings
+# This is to restore its behavior
+bindkey '^R' history-incremental-search-backward
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
