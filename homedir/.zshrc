@@ -13,9 +13,9 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
+HISTSIZE=1000000
 SAVEHIST=1000
-HISTFILE=~/.zsh_history
+HISTFILE=~/.bash_history # TODO Roll back this to zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
