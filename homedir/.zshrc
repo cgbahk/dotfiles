@@ -1,5 +1,7 @@
 # Set up the prompt
-
+#
+# This feature gives some builtin reasonable prompts
+# TODO Replace this with OMZ
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -26,6 +28,7 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
+# This is linux specific, Mac OS doesn't have such command
 eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
