@@ -2,7 +2,7 @@
 
 set -e
 
-GH_VERSION=$1
+GH_VERSION=$1 # v_.__.__
 
 if [[ -z ${GH_VERSION} ]]; then
   # TODO Remove 'jq' dependency
@@ -13,6 +13,8 @@ if [[ -z ${GH_VERSION} ]]; then
   fi
 
   GH_VERSION=$(curl -s https://api.github.com/repos/cli/cli/releases/latest | jq -r '.tag_name')
+  # On failure, this might be 'null'
+  # TODO Manage such case
 fi
 
 if [[ -z ${GH_VERSION} ]]; then
