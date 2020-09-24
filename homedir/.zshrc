@@ -138,4 +138,21 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+#
+# Alias
+#
+
+gitresetbase()
+{
+  local base_branch=$1
+
+  if [ -z ${base_branch} ]; then
+    base_branch=master
+  fi
+
+  echo "Reset to merge base with branch: '${base_branch}'"
+
+  git reset $(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
+}
+
 source ~/.bash_aliases
