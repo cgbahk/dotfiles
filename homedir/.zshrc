@@ -158,3 +158,4 @@ gitresetbase()
 }
 
 source ~/.bash_aliases
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
