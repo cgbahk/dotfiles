@@ -157,5 +157,5 @@ gitresetbase()
   git reset $(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
 }
 
-source ~/.bash_aliases
+[ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
