@@ -226,6 +226,7 @@ docker run -d --rm \
 alias vimyaml="vim -c 'se syntax=yaml' -c 'se foldmethod=indent'"
 vimchanged()
 {
+  # TODO Cannot deal with path with whitespace
   local gitroot=$(git rev-parse --show-toplevel)
   vim -p1 $(git status --porcelain | sed s%^...%${gitroot}/%)
 }
