@@ -31,6 +31,11 @@ function docker_cleanup()
 # git alias
 # TODO Move git alias into git's alias, e.g. git hub / git clear
 
+get_main_branch_name()
+{
+  git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+}
+
 github()
 {
   repo="https://github.com/$1"
@@ -73,16 +78,17 @@ alias gitclear='git checkout -- . && git clean -df'
 # Remove current branch
 gitrmb()
 {
-  branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  local curr_branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  local main_branch=$(get_main_branch_name)
 
-  if [ $branch = "master" ]; then
-    echo "Cannot remove master branch"
+  if [ $curr_branch = $main_branch ]; then
+    echo "Cannot remove main branch"
     return
   fi
 
   gitclear
-  git checkout master
-  git branch -D $branch
+  git checkout $main_branch
+  git branch -D $curr_branch
 }
 
 # Stash all except staged
