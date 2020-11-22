@@ -104,6 +104,19 @@ gitrebase()
   git rebase master
 }
 
+gitresetbase()
+{
+  local base_branch=$1
+
+  if [ -z ${base_branch} ]; then
+    base_branch=master
+  fi
+
+  echo "Reset to merge base with branch: '${base_branch}'"
+
+  git reset $(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
+}
+
 # git commit --amend --no-edit
 # TODO Check if HEAD commit is 'official' e.g. one on master
 gitcommitamend()

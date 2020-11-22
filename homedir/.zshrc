@@ -140,22 +140,5 @@ zle -N zle-keymap-select
 
 setopt share_history
 
-#
-# Alias
-#
-
-gitresetbase()
-{
-  local base_branch=$1
-
-  if [ -z ${base_branch} ]; then
-    base_branch=master
-  fi
-
-  echo "Reset to merge base with branch: '${base_branch}'"
-
-  git reset $(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
-}
-
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
