@@ -1,0 +1,12 @@
+[core]
+  editor = vim
+
+[user]
+  name = Cheongyo Bahk
+  email = cg.bahk@gmail.com
+
+[diff]
+  tool = vimdiff
+
+[pull]
+  ff = only
