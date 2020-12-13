@@ -1,5 +1,6 @@
 [core]
   editor = vim
+  pager = delta
 
 [user]
   name = Cheongyo Bahk
@@ -10,3 +11,17 @@
 
 [pull]
   ff = only
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = side-by-side line-numbers decorations
+  whitespace-error-style = 22 reverse
+  syntax-theme = Solarized (dark)
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold
+  file-decoration-style = box
+  hunk-header-decoration-style = none
