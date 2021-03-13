@@ -1,6 +1,7 @@
 [core]
   editor = vim
   pager = delta
+  hooksPath = /Users/user/r/git-motivated/hooks
 
 [user]
   name = Cheongyo Bahk
