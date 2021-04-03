@@ -305,8 +305,16 @@ export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
 export PATH=$PATH:${HOME}/go/bin
 
 # TODO Support for other system, e.g. mac
-alias cdtemp="cd $(mktemp -d) && pwd | xclip -sel clip"
+cdtemp()
+{
+  local keyword=$1
 
+  if [ -z $keyword ]; then
+    cd $(mktemp -d) && pwd | xclip -sel clip
+  else
+    cd $(mktemp -d --tmpdir $keyword.XXX) && pwd | xclip -sel clip
+  fi
+}
 
 ######################################################################
 # Github CLI
