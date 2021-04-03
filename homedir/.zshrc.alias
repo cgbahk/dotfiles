@@ -304,16 +304,31 @@ export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
 
 export PATH=$PATH:${HOME}/go/bin
 
-# TODO Support for other system, e.g. mac
 cdtemp()
 {
-  local keyword=$1
+  local KEYWORD=$1
 
-  if [ -z $keyword ]; then
-    cd $(mktemp -d) && pwd | xclip -sel clip
-  else
-    cd $(mktemp -d --tmpdir $keyword.XXX) && pwd | xclip -sel clip
-  fi
+  local OS_NAME=$(uname 2> /dev/null)
+  case ${OS_NAME} in
+    Linux)
+      if [ -z ${KEYWORD} ]; then
+        cd $(mktemp -d) && pwd | xclip -sel clip
+      else
+        cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd | xclip -sel clip
+      fi
+      ;;
+    Darwin)
+      # TODO Copy directory to clipboard like linux version
+      if [ -z ${KEYWORD} ]; then
+        cd $(mktemp -d)
+      else
+        cd $(mktemp -d -t ${KEYWORD})
+      fi
+      ;;
+    *)
+      echo "ERROR: Unknown os: ${OS_NAME}"
+      exit 1
+  esac
 }
 
 ######################################################################
