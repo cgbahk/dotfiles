@@ -282,6 +282,14 @@ vimg()
   vim -c "vert G"
 }
 
+vimtobase()
+{
+  local base_branch=$(get_main_branch_name)
+  local merge_base=$(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
+
+  # TODO Getting changed file may not gives current commit's path
+  vim -c "let g:gitgutter_diff_base='${merge_base}'" -p1 $(git log --name-only --format="" ${merge_base}..HEAD)
+}
 
 ######################################################################
 # etc.
