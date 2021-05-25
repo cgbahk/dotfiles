@@ -269,7 +269,7 @@ vimchanged()
 
 vimcommit()
 {
-  vim -p1 $(git log --name-only --format="" -1)
+  vim -c "let g:gitgutter_diff_base='HEAD^'" -p1 $(git log --name-only --format="" -1)
 }
 
 vimprev()
