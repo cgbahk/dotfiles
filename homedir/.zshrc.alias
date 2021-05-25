@@ -33,7 +33,18 @@ function docker_cleanup()
 
 get_main_branch_name()
 {
-  git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+  local branch_name
+  branch_name=$(git remote | grep '^upstream$')
+
+  if [ -z $branch_name ]; then
+    branch_name=$(git remote | grep '^origin$')
+  fi
+
+  if [ -z $branch_name ]; then
+    return 1
+  fi
+
+  git remote show $branch_name | grep 'HEAD branch' | sed 's/HEAD branch://' | sed 's/ //g'
 }
 
 get_curr_branch_name()
