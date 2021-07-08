@@ -144,5 +144,15 @@ zle -N zle-keymap-select
 
 setopt share_history
 
+VENV_ACTIVATE="venv/bin/activate"
+if [[ -f ${VENV_ACTIVATE} ]]; then
+  . ${VENV_ACTIVATE}
+  echo "...Virtual environment 'venv' automatically enabled!"
+fi
+
+# Enable completion (Not sure what it does)
+autoload -Uz compinit
+compinit
+
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
