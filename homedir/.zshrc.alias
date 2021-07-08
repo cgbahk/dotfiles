@@ -31,20 +31,32 @@ function docker_cleanup()
 # git alias
 # TODO Move git alias into git's alias, e.g. git hub / git clear
 
+# OPTIONAL ARG
+# - fallback branch name
 get_main_branch_name()
 {
-  local branch_name
-  branch_name=$(git remote | grep '^upstream$')
+  local remote_name=''
 
-  if [ -z $branch_name ]; then
-    branch_name=$(git remote | grep '^origin$')
+  if [ -z $remote_name ]; then
+    remote_name=$(git remote | grep '^upstream$')
   fi
 
-  if [ -z $branch_name ]; then
-    return 1
+  if [ -z $remote_name ]; then
+    remote_name=$(git remote | grep '^origin$')
   fi
 
-  git remote show $branch_name | grep 'HEAD branch' | sed 's/HEAD branch://' | sed 's/ //g'
+  if [ ! -z $remote_name ]; then
+    git remote show $remote_name | grep 'HEAD branch' | sed 's/HEAD branch://' | sed 's/ //g'
+    return 0
+  fi
+
+  if [ $# -ge 1 ]; then
+    # TODO check this branch name actually exists
+    echo $1; shift
+    return 0
+  fi
+
+  return 1
 }
 
 get_curr_branch_name()
@@ -92,10 +104,13 @@ gitbranch()
 alias gitclear='git checkout -- . && git clean -df'
 
 # Remove current branch
+#
+# OPTIONAL ARG
+# - fallback branch name
 gitrmb()
 {
   local curr_branch=$(get_curr_branch_name)
-  local main_branch=$(get_main_branch_name)
+  local main_branch=$(get_main_branch_name $1)
 
   if [ $curr_branch = $main_branch ]; then
     echo "Cannot remove main branch '$main_branch'"
@@ -111,10 +126,13 @@ gitrmb()
 alias gitstash='git stash --keep-index --include-untracked'
 
 # Update main and rebase current branch to it
+#
+# OPTIONAL ARG
+# - fallback branch name
 gitrebase()
 {
   local curr_branch=$(get_curr_branch_name)
-  local main_branch=$(get_main_branch_name)
+  local main_branch=$(get_main_branch_name $1)
 
   if [ $curr_branch = $main_branch ]; then
     echo "Cannot rebase main branch '$main_branch'"
@@ -288,9 +306,11 @@ vimg()
   vim -c "vert G"
 }
 
+# OPTIONAL ARG
+# - fallback branch name
 vimtobase()
 {
-  local base_branch=$(get_main_branch_name)
+  local base_branch=$(get_main_branch_name $1)
   local merge_base=$(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
 
   # TODO Getting changed file may not gives current commit's path
