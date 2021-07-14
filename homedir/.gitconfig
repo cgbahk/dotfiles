@@ -12,6 +12,9 @@
 [pull]
   ff = only
 
+[grep]
+  lineNumber = true
+
 [interactive]
   diffFilter = delta --color-only
 
