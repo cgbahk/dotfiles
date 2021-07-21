@@ -173,9 +173,12 @@ gitextract()
   git reset HEAD^
 }
 
-# TODO echo as well
-# TODO remove newline
-alias githash='git rev-parse --short HEAD | xclip -sel clip'
+githash()
+{
+  local HASH=$(git rev-parse --short HEAD | tr -d '\n')
+  echo $HASH
+  echo -n $HASH | xclip -sel clip
+}
 
 alias gitrv=gitreview
 gitreview()
