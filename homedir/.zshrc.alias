@@ -328,7 +328,8 @@ stderred()
   $@ 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" >&2; done)
 }
 
-export FZF_DEFAULT_COMMAND='find -L .* . -not -path "*.git/*" -not -path "..*"'
+# This was helpful: https://stackoverflow.com/a/1489935/4214521
+export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name dir_to_exclude \) -prune -o -print'
 export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
 
 export PATH=$PATH:${HOME}/go/bin
