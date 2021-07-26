@@ -154,6 +154,28 @@ fi
 autoload -Uz compinit
 compinit
 
+# ntfy config
+AUTO_NTFY_DONE_IGNORE=""
+function append_ntfy_ignore()
+{
+  local arg=$1; shift
+  export AUTO_NTFY_DONE_IGNORE="${AUTO_NTFY_DONE_IGNORE} ${arg}"
+}
+append_ntfy_ignore cgdb
+append_ntfy_ignore gh
+append_ntfy_ignore git
+append_ntfy_ignore gitlogb
+append_ntfy_ignore ipython
+append_ntfy_ignore kcachegrind
+append_ntfy_ignore look
+append_ntfy_ignore man
+append_ntfy_ignore tmux
+append_ntfy_ignore top
+append_ntfy_ignore vim
+append_ntfy_ignore vimchanged
+append_ntfy_ignore vimrebase
+append_ntfy_ignore vimtobase
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
