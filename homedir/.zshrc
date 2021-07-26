@@ -154,5 +154,7 @@ fi
 autoload -Uz compinit
 compinit
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
