@@ -6,6 +6,9 @@
   name = Cheongyo Bahk
   email = cg.bahk@gmail.com
 
+[alias]
+  co = checkout
+
 [diff]
   tool = vimdiff
 
