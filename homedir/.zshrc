@@ -165,16 +165,19 @@ append_ntfy_ignore cgdb
 append_ntfy_ignore gh
 append_ntfy_ignore git
 append_ntfy_ignore gitlogb
+append_ntfy_ignore grep
 append_ntfy_ignore ipython
 append_ntfy_ignore kcachegrind
 append_ntfy_ignore look
 append_ntfy_ignore man
+append_ntfy_ignore nano
 append_ntfy_ignore tmux
 append_ntfy_ignore top
 append_ntfy_ignore vim
 append_ntfy_ignore vimchanged
 append_ntfy_ignore vimrebase
 append_ntfy_ignore vimtobase
+append_ntfy_ignore watch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
