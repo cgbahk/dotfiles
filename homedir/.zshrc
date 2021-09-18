@@ -155,6 +155,10 @@ autoload -Uz compinit
 compinit
 
 # ntfy config
+if [ -x "$(command -v ntfy)" ]; then
+  eval "$(ntfy shell-integration)"
+fi
+
 AUTO_NTFY_DONE_IGNORE=""
 function append_ntfy_ignore()
 {
