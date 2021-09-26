@@ -18,6 +18,10 @@
 	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_BFA4ABC6-3719-401C-84DC-AFB98EA85D85</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_BFA4ABC6-3719-401C-84DC-AFB98EA85D85_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1375,9 +1379,15 @@
 			<string>/Users/cg</string>
 		</dict>
 	</array>
+	<key>OpenArrangementAtStartup</key>
+	<false/>
 	<key>OpenBookmark</key>
 	<false/>
+	<key>OpenNoWindowsAtStartup</key>
+	<true/>
 	<key>OpenTmuxWindowsIn</key>
+	<integer>2</integer>
+	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>
 	<dict>
