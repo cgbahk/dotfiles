@@ -255,7 +255,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>80</integer>
+			<integer>140</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -700,7 +700,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>7</integer>
 			<key>Working Directory</key>
 			<string>/Users/cg</string>
 		</dict>
