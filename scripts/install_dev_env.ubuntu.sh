@@ -52,7 +52,14 @@ VIM_REPO_DIR=~/.vim_runtime
 git clone https://github.com/cgbahk/vimrc ${VIM_REPO_DIR}
 ${VIM_REPO_DIR}/install_awesome_vimrc.sh
 
-# TODO fzf
+#
+# fzf
+#
+# TODO ubuntu 20.04 apt includes fzf
+FZF_REPO_DIR=~/.fzf
+git clone https://github.com/junegunn/fzf ${FZF_REPO_DIR}
+${FZF_REPO_DIR}/install
+
 # TODO ntfy
 
 echo "Install dev environment - END"
