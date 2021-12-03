@@ -61,6 +61,8 @@ git clone https://github.com/junegunn/fzf ${FZF_REPO_DIR}
 ${FZF_REPO_DIR}/install
 
 # TODO ntfy
+# TODO delta - Manual install from https://github.com/dandavison/delta/releases
+# TODO gh
 
 echo "Install dev environment - END"
 exit
