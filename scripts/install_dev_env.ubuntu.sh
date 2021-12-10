@@ -16,6 +16,8 @@ function force_link()
   ln -s ${SOURCE} ${LINK}
 }
 
+sudo apt update
+
 #
 # Install dotfiles
 #
@@ -60,7 +62,17 @@ FZF_REPO_DIR=~/.fzf
 git clone https://github.com/junegunn/fzf ${FZF_REPO_DIR}
 ${FZF_REPO_DIR}/install
 
-# TODO ntfy
+#
+# ntfy
+#
+sudo apt install -y python3-pip
+sudo pip3 install ntfy
+
+NTFY_CONFIG_PATH=~/.config/ntfy/ntfy.yml
+mkdir -p $(dirname ${NTFY_CONFIG_PATH})
+touch ${NTFY_CONFIG_PATH}
+echo "Caveat: Need to fill '${NTFY_CONFIG_PATH}' manually"  # TODO Find better way
+
 # TODO delta - Manual install from https://github.com/dandavison/delta/releases
 # TODO gh
 
