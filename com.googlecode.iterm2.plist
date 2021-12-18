@@ -10,6 +10,10 @@
 	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>BFA4ABC6-3719-401C-84DC-AFB98EA85D85</string>
+	<key>DimBackgroundWindows</key>
+	<true/>
+	<key>DimOnlyText</key>
+	<true/>
 	<key>FlashTabBarInFullscreen</key>
 	<false/>
 	<key>HapticFeedbackForEsc</key>
