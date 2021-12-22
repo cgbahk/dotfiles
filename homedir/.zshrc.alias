@@ -341,7 +341,7 @@ cdtemp()
       ;;
     *)
       echo "ERROR: Unknown os: ${OS_NAME}"
-      exit 1
+      return 1
   esac
 }
 
@@ -352,7 +352,7 @@ make_venv()
 
   if ! type "$PYTHON_EXE" > /dev/null; then
     echo "ERROR: No command '${PYTHON_EXE}'"
-    exit 1
+    return 1
   fi
 
   ${PYTHON_EXE} -m venv ${VENV_PATH}
