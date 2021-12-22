@@ -64,24 +64,8 @@ get_curr_branch_name()
   git rev-parse --abbrev-ref HEAD 2> /dev/null
 }
 
-github()
-{
-  repo="https://github.com/$1"
-  # todo: --recursive?
-  if [ -z "$2" ]; then
-      git clone $repo
-      cd $(basename $1)
-  else
-      git clone $repo "$2"
-      cd $2
-  fi
-}
 alias gitlogb="git log --oneline --graph --branches='*'"
 alias gitlog='git log --pretty=format:"%h%x09%ad%x09%an%x09%s"'
-alias gitdiff='git diff --cached'
-
-# TODO
-# _get_current_branch()
 
 gitpush()
 {
@@ -121,9 +105,6 @@ gitrmb()
   git checkout $main_branch
   git branch -D $curr_branch
 }
-
-# Stash all except staged
-alias gitstash='git stash --keep-index --include-untracked'
 
 # Update main and rebase current branch to it
 #
