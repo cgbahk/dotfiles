@@ -193,6 +193,9 @@ gitreview()
 
 alias gitcommitdraft='git commit -m "WIP (not HEAD) [ci skip]"'
 
+alias gitfzf="git branch --format='%(refname:short)' | fzf"
+alias gitcofzf='git checkout $(gitfzf)'
+
 
 ######################################################################
 # grep & find
