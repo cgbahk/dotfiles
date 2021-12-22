@@ -345,6 +345,20 @@ cdtemp()
   esac
 }
 
+make_venv()
+{
+  local PYTHON_EXE=$1; shift
+  local VENV_PATH=$1; shift
+
+  if ! type "$PYTHON_EXE" > /dev/null; then
+    echo "ERROR: No command '${PYTHON_EXE}'"
+    exit 1
+  fi
+
+  ${PYTHON_EXE} -m venv ${VENV_PATH}
+  ${VENV_PATH}/bin/python -m pip install -U pip
+}
+
 ######################################################################
 # Github CLI
 
