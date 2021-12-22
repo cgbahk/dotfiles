@@ -182,6 +182,7 @@ append_ntfy_ignore top
 append_ntfy_ignore vi
 append_ntfy_ignore vim
 append_ntfy_ignore vimchanged
+append_ntfy_ignore vimcommit
 append_ntfy_ignore vimdiff
 append_ntfy_ignore vimrebase
 append_ntfy_ignore vimtobase
