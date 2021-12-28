@@ -321,28 +321,23 @@ export PATH=$PATH:${HOME}/go/bin
 cdtemp()
 {
   local KEYWORD=$1
+  if [ -z ${KEYWORD} ]; then
+    KEYWORD='default'
+  fi
 
-  local OS_NAME=$(uname 2> /dev/null)
-  case ${OS_NAME} in
-    Linux)
-      if [ -z ${KEYWORD} ]; then
-        cd $(mktemp -d) && pwd | xclip -sel clip
-      else
-        cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd | xclip -sel clip
-      fi
-      ;;
-    Darwin)
-      # TODO Copy directory to clipboard like linux version
-      if [ -z ${KEYWORD} ]; then
-        cd $(mktemp -d)
-      else
-        cd $(mktemp -d -t ${KEYWORD})
-      fi
-      ;;
-    *)
-      echo "ERROR: Unknown os: ${OS_NAME}"
-      return 1
-  esac
+local OS_NAME=$(uname 2> /dev/null)
+case ${OS_NAME} in
+  Linux)
+    cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd | xclip -sel clip
+    ;;
+  Darwin)
+    # TODO Copy directory to clipboard like linux version
+    cd $(mktemp -d -t ${KEYWORD})
+    ;;
+  *)
+    echo "ERROR: Unknown os: ${OS_NAME}"
+    return 1
+esac
 }
 
 make_venv()
