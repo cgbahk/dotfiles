@@ -16,7 +16,7 @@ function force_link()
   ln -s ${SOURCE} ${LINK}
 }
 
-sudo apt update
+sudo apt-get update
 
 #
 # Install dotfiles
@@ -28,7 +28,7 @@ git clone https://github.com/cgbahk/dotfiles ${DOTFILES_REPO_DIR}
 #
 # Install zsh and setting
 #
-sudo apt install -y zsh language-pack-en
+sudo apt-get install -y zsh language-pack-en
 # TODO This script is interactive. Remove this behavior.
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
@@ -65,7 +65,7 @@ ${FZF_REPO_DIR}/install
 #
 # ntfy
 #
-sudo apt install -y python3-pip
+sudo apt-get install -y python3-pip
 sudo pip3 install ntfy
 
 NTFY_CONFIG_PATH=~/.config/ntfy/ntfy.yml
