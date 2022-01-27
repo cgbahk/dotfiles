@@ -23,7 +23,10 @@ sudo apt-get update
 #
 DOTFILES_REPO_DIR=~/r/dotfiles
 mkdir -p ${DOTFILES_REPO_DIR}
-git clone https://github.com/cgbahk/dotfiles ${DOTFILES_REPO_DIR}
+
+if [ ! -d ${DOTFILES_REPO_DIR}/.git ]; then
+  git clone https://github.com/cgbahk/dotfiles ${DOTFILES_REPO_DIR}
+fi
 
 #
 # Install zsh and setting
