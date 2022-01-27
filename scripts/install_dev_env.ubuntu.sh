@@ -28,7 +28,7 @@ git clone https://github.com/cgbahk/dotfiles ${DOTFILES_REPO_DIR}
 #
 # Install zsh and setting
 #
-sudo apt install -y zsh
+sudo apt install -y zsh language-pack-en
 # TODO This script is interactive. Remove this behavior.
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
