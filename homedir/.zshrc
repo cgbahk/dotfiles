@@ -165,6 +165,7 @@ function append_ntfy_ignore()
 append_ntfy_ignore cgdb
 append_ntfy_ignore gh
 append_ntfy_ignore git
+append_ntfy_ignore gitdifftobase
 append_ntfy_ignore gitextract
 append_ntfy_ignore gitlogb
 append_ntfy_ignore grep

@@ -196,6 +196,16 @@ alias gitcommitdraft='git commit -m "WIP (not HEAD) [ci skip]"'
 alias gitfzf="git branch --format='%(refname:short)' | fzf"
 alias gitcofzf='git checkout $(gitfzf)'
 
+# OPTIONAL ARG
+# - fallback branch name
+gitdifftobase()
+{
+  local base_branch=$(get_main_branch_name $1)
+  local merge_base=$(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
+
+  git diff ${merge_base}..HEAD
+}
+
 
 ######################################################################
 # grep & find
