@@ -382,3 +382,38 @@ ghissue ()
 {
   gh issue view --web $1 > /dev/null 2>&1
 }
+
+ghrefer()
+{
+  # TODO Support PR review
+  COMMENT_URL_ORIG=$1; shift
+
+  # Normalize comment URL
+  COMMENT_URL=$(echo ${COMMENT_URL_ORIG} | sed 's /files# #discussion_ ')
+
+  OWNER=$(\
+    echo ${COMMENT_URL} \
+    | sed 's|https://||' \
+    | awk -F "/" '{print $2}' \
+  )
+  REPO=$(\
+    echo ${COMMENT_URL} \
+    | sed 's|https://||' \
+    | awk -F "/" '{print $3}' \
+  )
+  KIND=issues
+  COMMENT_ID=$(\
+    echo ${COMMENT_URL} \
+    | sed 's/.*#//' \
+    | sed 's/[^0-9]//g' \
+  )
+
+  API=repos/${OWNER}/${REPO}/${KIND}/comments/${COMMENT_ID}
+
+  AUTHOR=$(gh api ${API} | jq -r '.user.login')
+
+  # Write down
+  gh api ${API} | jq -r '.body' | sed 's/.*/> &/'
+  echo '>'
+  echo "> _(Copied from ${COMMENT_URL}, origially written by @${AUTHOR})_"
+}
