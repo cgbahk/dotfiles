@@ -149,8 +149,14 @@ gitcommitamend()
 
 gitextract()
 {
-  read "branch?Branch name? "
+  local branch=$1; shift
+
   git checkout -b $branch
+
+  if [ "$?" -ne 0 ]; then
+    return 1
+  fi
+
   git reset HEAD^
 }
 
