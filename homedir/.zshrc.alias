@@ -316,8 +316,11 @@ vimtobase()
   local base_branch=$(get_main_branch_name $1)
   local merge_base=$(git merge-base $(git rev-parse HEAD) $(git rev-parse ${base_branch}))
 
+  # TODO Remove duplication
+  git log --name-only --format="" ${merge_base}..HEAD | sort | uniq
+
   # TODO Getting changed file may not gives current commit's path
-  vim -c "let g:gitgutter_diff_base='${merge_base}'" -p1 $(git log --name-only --format="" ${merge_base}..HEAD)
+  vim -c "let g:gitgutter_diff_base='${merge_base}'" -p1 $(git log --name-only --format="" ${merge_base}..HEAD | sort | uniq)
 }
 
 ######################################################################
