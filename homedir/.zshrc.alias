@@ -413,7 +413,11 @@ ghrefer()
   AUTHOR=$(gh api ${API} | jq -r '.user.login')
 
   # Write down
-  gh api ${API} | jq -r '.body' | sed 's/.*/> &/'
-  echo '>'
-  echo "> _(Copied from ${COMMENT_URL}, origially written by @${AUTHOR})_"
+  CONTENTS=$(mktemp)
+  gh api ${API} | jq -r '.body' | sed 's/.*/> &/' >> ${CONTENTS}
+  echo '>' >> ${CONTENTS}
+  echo "> _(Copied from ${COMMENT_URL}, origially written by @${AUTHOR})_" >> ${CONTENTS}
+
+  cat ${CONTENTS}
+  cat ${CONTENTS} | xclip -sel clip
 }
