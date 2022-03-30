@@ -7,3 +7,4 @@
 based_on_style = google
 column_limit=100
 split_before_first_argument=True
+dedent_closing_brackets=True
