@@ -10,6 +10,10 @@
       "passKeys": "k"
     },
     {
+      "pattern": "https?://github.com/notification*",
+      "passKeys": "x"
+    },
+    {
       "pattern": "https?://www.reddit.com/*",
       "passKeys": "j"
     },
