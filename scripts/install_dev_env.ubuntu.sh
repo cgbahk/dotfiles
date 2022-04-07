@@ -21,7 +21,7 @@ sudo apt-get update
 #
 # Install dotfiles
 #
-DOTFILES_REPO_DIR=~/r/dotfiles
+DOTFILES_REPO_DIR=~/.dotfiles
 mkdir -p ${DOTFILES_REPO_DIR}
 
 if [ ! -d ${DOTFILES_REPO_DIR}/.git ]; then
