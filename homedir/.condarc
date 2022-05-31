@@ -1,1 +1,5 @@
 auto_activate_base: False
+
+channels:
+  - defaults
+  - conda-forge
