@@ -153,7 +153,7 @@ compinit
 
 # ntfy config
 if [ -x "$(command -v ntfy)" ]; then
-  eval "$(ntfy shell-integration)"
+  eval "$(ntfy shell-integration -L1)"
 fi
 
 AUTO_NTFY_DONE_IGNORE=""
@@ -162,33 +162,7 @@ function append_ntfy_ignore()
   local arg=$1; shift
   export AUTO_NTFY_DONE_IGNORE="${AUTO_NTFY_DONE_IGNORE} ${arg}"
 }
-append_ntfy_ignore cgdb
-append_ntfy_ignore gh
-append_ntfy_ignore git
-append_ntfy_ignore gitdifftobase
-append_ntfy_ignore gitextract
-append_ntfy_ignore gitlogb
-append_ntfy_ignore grep
-append_ntfy_ignore hub
-append_ntfy_ignore ipython
-append_ntfy_ignore kcachegrind
-append_ntfy_ignore look
-append_ntfy_ignore man
-append_ntfy_ignore nano
-append_ntfy_ignore ncdu
-append_ntfy_ignore ssh
-append_ntfy_ignore sshpass
-append_ntfy_ignore tmux
-append_ntfy_ignore top
-append_ntfy_ignore vi
-append_ntfy_ignore vim
-append_ntfy_ignore vimchanged
-append_ntfy_ignore vimcommit
-append_ntfy_ignore vimdiff
-append_ntfy_ignore vimcommit
-append_ntfy_ignore vimrebase
-append_ntfy_ignore vimtobase
-append_ntfy_ignore watch
+# ntfy ignore list becomes not required by https://github.com/cgbahk/ntfy/pull/2
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
