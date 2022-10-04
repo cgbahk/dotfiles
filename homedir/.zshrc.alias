@@ -375,6 +375,35 @@ make_venv()
   source ${VENV_PATH}/bin/activate
 }
 
+prepare_python_directory()
+{
+  local main_script_path="main.py"
+
+  if [ -e ${main_script_path} ]; then
+    echo "${main_script_path} already exists"
+  else
+cat << EOF > ${main_script_path}
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
+EOF
+    echo "${main_script_path} generated"
+  fi
+
+  local require_list_path="requirements.txt"
+
+  if [ -e ${require_list_path} ]; then
+    echo "${require_list_path} already exists"
+  else
+    touch ${require_list_path}
+    echo "${require_list_path} generated"
+  fi
+}
+
+
 ######################################################################
 # Github CLI
 
