@@ -1,0 +1,15 @@
+# Sample conda environment
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.8
+  - pysocks
+
+  # Maybe
+  # - cudatoolkit=11.3
+
+# For environment variable
+# variables:
+#   FOO: bar
