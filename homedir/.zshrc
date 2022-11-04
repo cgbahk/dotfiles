@@ -162,7 +162,10 @@ function append_ntfy_ignore()
   local arg=$1; shift
   export AUTO_NTFY_DONE_IGNORE="${AUTO_NTFY_DONE_IGNORE} ${arg}"
 }
-# ntfy ignore list becomes not required by https://github.com/cgbahk/ntfy/pull/2
+
+# Most ntfy ignore list becomes not required by https://github.com/cgbahk/ntfy/pull/2
+append_ntfy_ignore tmux
+append_ntfy_ignore ssh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
