@@ -9,3 +9,5 @@ column_limit=100
 split_before_first_argument=True
 dedent_closing_brackets=True
 indent_dictionary_value=False
+# This seems to have bug, not working always
+coalesce_brackets=False
