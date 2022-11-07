@@ -1,0 +1,25 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    visible_bell = True
+    icon_bell = False
+    background_color = "#002b36"
+    cursor_color = "#aaaaaa"
+    font = Menlo for Powerline 11  # https://github.com/lxbrtsch/Menlo-for-Powerline
+    foreground_color = "#839496"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    word_chars = "-,./?%&#_~:"
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
