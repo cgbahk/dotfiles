@@ -1,0 +1,3 @@
+# Reference: https://corazzon.github.io/matplotlib_font_setting
+font.family: NanumGothic
+axes.unicode_minus: False  # Required to use Korean font?
