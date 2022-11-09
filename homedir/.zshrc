@@ -167,6 +167,24 @@ function append_ntfy_ignore()
 append_ntfy_ignore tmux
 append_ntfy_ignore ssh
 
+# conda initialization
+#
+# Content copied from result of `conda init zsh` with come edit
+if [[ -d ~/miniconda3 ]]; then
+  __conda_setup="$(~/miniconda3/bin/conda shell.zsh hook 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+  else
+    echo "ERROR - conda initialization failed"
+  fi
+  unset __conda_setup
+fi
+
+CONDA_ENV_DIR="./conda.env"
+if [[ -d ${CONDA_ENV_DIR} ]]; then
+  conda activate ${CONDA_ENV_DIR}
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
