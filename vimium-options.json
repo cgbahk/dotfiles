@@ -1,5 +1,5 @@
 {
-  "settingsVersion": "1.67",
+  "settingsVersion": "1.67.2",
   "exclusionRules": [
     {
       "pattern": "https?://github.com/*",
@@ -24,6 +24,10 @@
     {
       "pattern": "https?://www.youtube.com/*",
       "passKeys": "f"
+    },
+    {
+      "pattern": "https?://mail.google.com/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
