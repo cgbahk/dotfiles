@@ -1,0 +1,37 @@
+# Rule of thumb
+# If only runtime environment required
+#   If cudnn required
+#     - Use `conda-forge` channel with `cudnn` package
+#   else
+#     - Use `nvidia` channel `cuda-libraries` package
+# If build environment required
+#   If cudnn required
+#     - Overlay `nvidia` channel `cuda-toolkit` package with `conda-forge` channel `cudnn` package
+#   else
+#     - Use `nvidia` channel `cuda-toolkit` package
+channels:
+  - nvidia
+  # Or version might be specified as
+  # - nvidia/label/cuda-x.y.z
+
+  - conda-forge  # For cudnn
+
+dependencies:
+  # Version might be specified for each package
+  - cuda-libraries  # For runtime
+  - cuda-toolkit  # For build environment
+
+  # `cudnn` in `nvidia` channel
+  #
+  # For some strange reason, `nvidia` channel doens't provide latest `cudnn`
+  # Also `nvidia` channel `cudnn` package depends on `cudatoolkit` which only has runtime environment
+  # Not this is differet from `cuda-toolkit` which also has build environment
+  #
+  # `cudnn` in `code-forge` channel
+  #
+  # It seems `code-forge` channel supports latest cudnn package.
+  # But it depends on `code-forge` `cudatoolkit` package, which may lead to duplicated cuda environment.
+  #
+  # How other project deal with this?
+  # - `pytorch` channel support its own cudnn-integrated pytorch
+  - cudnn

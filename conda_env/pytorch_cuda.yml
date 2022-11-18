@@ -1,0 +1,7 @@
+name: pytorch_cuda
+channels:
+  - nvidia
+  - pytorch
+dependencies:
+  - pytorch
+  - pytorch-cuda=11.7
