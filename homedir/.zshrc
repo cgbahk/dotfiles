@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
@@ -16,27 +13,8 @@ ZSH_THEME="agnoster"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -44,12 +22,15 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
+# Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
+#
+# TODO Can we make a per-directory setting for this?
+#
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
@@ -74,26 +55,7 @@ plugins=(\
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 export EDITOR='vim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Override prompt style provided by agnoster theme
 # 
@@ -104,11 +66,11 @@ prompt_dir() {
 
 build_prompt() {
   RETVAL=$?
-  echo
+  echo  # This added
   prompt_status
   prompt_virtualenv
   prompt_aws
-  # prompt_context
+  # prompt_context  # This removed
   prompt_dir
   prompt_git
   prompt_bzr
@@ -121,9 +83,6 @@ bindkey -v
 # Default behavior of '^R' is hidden by vi keybindings
 # This is to restore its behavior
 bindkey '^R' history-incremental-search-backward
-# TODO restore followings:
-# bindkey `^U`
-# bindkey `^K`
 
 # vi binding: distinguish normal/insert mode
 function zle-line-init zle-keymap-select {
@@ -144,7 +103,6 @@ setopt share_history
 VENV_ACTIVATE="venv/bin/activate"
 if [[ -f ${VENV_ACTIVATE} ]]; then
   . ${VENV_ACTIVATE}
-  echo "...Virtual environment 'venv' automatically enabled!"
 fi
 
 # Enable completion (Not sure what it does)
