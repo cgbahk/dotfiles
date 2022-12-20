@@ -11,3 +11,5 @@ dedent_closing_brackets=True
 indent_dictionary_value=False
 # This seems to have bug, not working always
 coalesce_brackets=False
+split_penalty_after_opening_bracket=0
+split_penalty_arithmetic_operator=10000
