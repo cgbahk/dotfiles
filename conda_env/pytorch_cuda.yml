@@ -4,4 +4,4 @@ channels:
   - pytorch
 dependencies:
   - pytorch
-  - pytorch-cuda=11.7
+  - pytorch-cuda  # e.g.) =11.7
