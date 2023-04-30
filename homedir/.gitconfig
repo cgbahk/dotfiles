@@ -34,3 +34,10 @@
   file-style = bold
   file-decoration-style = box
   hunk-header-decoration-style = none
+
+# Q. What does these mean?
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
