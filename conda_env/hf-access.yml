@@ -1,0 +1,18 @@
+channels:
+  - nvidia
+  - pytorch
+dependencies:
+  - pytorch
+  - pytorch-cuda
+  - pip
+  - pip:
+    - transformers
+    - datasets
+    - huggingface_hub[cli]  # For `huggingface-cli delete-cache`
+
+    # https://github.com/huggingface/transformers/issues/17611#issuecomment-1323272726
+    - requests<2.28
+variables:
+  HTTP_PROXY: FILLME
+  HTTPS_PROXY: FILLME
+  CURL_CA_BUNDLE: ""
