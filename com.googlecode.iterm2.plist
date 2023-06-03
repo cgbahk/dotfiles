@@ -706,7 +706,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>7</integer>
+			<integer>12</integer>
 			<key>Working Directory</key>
 			<string>/Users/cg</string>
 		</dict>
