@@ -10,6 +10,10 @@ dependencies:
     - datasets
     - huggingface_hub[cli]  # For `huggingface-cli delete-cache`
 
+    # Required by some tokenizers
+    - sentencepiece
+    - protobuf<3.21
+
     # https://github.com/huggingface/transformers/issues/17611#issuecomment-1323272726
     - requests<2.28
 variables:
