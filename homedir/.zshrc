@@ -123,15 +123,19 @@ append_ntfy_ignore ssh
 
 # conda initialization
 #
-# Content copied from result of `conda init zsh` with come edit
-if [[ -d ~/miniconda3 ]]; then
-  __conda_setup="$(~/miniconda3/bin/conda shell.zsh hook 2> /dev/null)"
+# Content copied from result of `mamba init zsh` with come edit
+if [[ -d ~/mambaforge ]]; then
+  __conda_setup="$(~/mambaforge/bin/conda shell.zsh hook 2> /dev/null)"
   if [ $? -eq 0 ]; then
     eval "$__conda_setup"
   else
     echo "ERROR - conda initialization failed"
   fi
   unset __conda_setup
+
+  if [ -f ~/mambaforge/etc/profile.d/mamba.sh ]; then
+    . ~/mambaforge/etc/profile.d/mamba.sh
+  fi
 fi
 
 CONDA_ENV_DIR="./conda.env"
