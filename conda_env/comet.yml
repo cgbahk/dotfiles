@@ -1,0 +1,17 @@
+channels:
+  - nvidia
+  - pytorch
+dependencies:
+  - python>3.8
+  - pip
+  - pytorch
+  - pytorch-cuda
+  - pip:
+    # May need manual fix in local installed file.
+    # On release with this PR, manual fix might not be required:
+    #   https://github.com/Unbabel/COMET/pull/185
+    #
+    # Or `AttributeError` might occur.
+    #
+    # TODO Find better way
+    - unbabel-comet
