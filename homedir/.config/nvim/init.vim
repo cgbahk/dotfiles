@@ -4,3 +4,4 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 set clipboard+=unnamedplus
+highlight Folded guifg=#444444
