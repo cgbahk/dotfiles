@@ -5,3 +5,6 @@ source ~/.vimrc
 
 set clipboard+=unnamedplus
 highlight Folded guifg=#444444
+highlight ColorColumn guibg=#242424
+highlight DiffAdd guibg=Black
+highlight DiffChange guibg=Black
