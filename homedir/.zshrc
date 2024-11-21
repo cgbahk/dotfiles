@@ -123,6 +123,8 @@ append_ntfy_ignore ssh
 
 # conda initialization
 #
+# `mambaforge` seems to be deprecated. Remove these commented lines after migration seems okay
+: <<'END'
 # Content copied from result of `mamba init zsh` with come edit
 if [[ -d ~/mambaforge ]]; then
   __conda_setup="$(~/mambaforge/bin/conda shell.zsh hook 2> /dev/null)"
@@ -136,6 +138,20 @@ if [[ -d ~/mambaforge ]]; then
   if [ -f ~/mambaforge/etc/profile.d/mamba.sh ]; then
     . ~/mambaforge/etc/profile.d/mamba.sh
   fi
+fi
+END
+
+# Newly applied by miniforge3 version 24.9.2-0
+__conda_setup="$(~/miniforge3/bin/conda shell.zsh hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    echo "ERROR - conda initialization failed"
+fi
+unset __conda_setup
+
+if [ -f ~/miniforge3/etc/profile.d/mamba.sh ]; then
+    . ~/miniforge3/etc/profile.d/mamba.sh
 fi
 
 CONDA_ENV_DIR="./conda.env"
