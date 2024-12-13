@@ -56,8 +56,27 @@ export EDITOR='vim'
 # Override prompt style provided by agnoster theme
 # 
 # For detail check: '.oh-my-zsh/themes/agnoster.zsh-theme'
+SEGMENT_SEPARATOR=$'\u2599'  # To be compatible with most fonts
+
 prompt_dir() {
   prompt_segment blue $CURRENT_FG $(shrink_path -f)
+}
+
+# TODO Use `prompt_end`. There is issue on coloring.
+prompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+    echo -n " %{%k%F{$CURRENT_BG}%}"
+  else
+    echo -n "%{%k%}"
+  fi
+  echo -n "%{%f%}"
+  CURRENT_BG=''
+}
+
+prompt_git_() {
+  # Original code use hard coded `\ue0a0`. Let's not use it.
+  # Note `sed` only accepts actual byte reprsentation.
+  echo -n $(echo $(prompt_git) | sed 's/\xee\x82\xa0//')
 }
 
 build_prompt() {
@@ -68,7 +87,7 @@ build_prompt() {
   prompt_aws
   # prompt_context  # This removed
   prompt_dir
-  prompt_git
+  prompt_git_  # post-processed
   prompt_bzr
   prompt_hg
   prompt_end
