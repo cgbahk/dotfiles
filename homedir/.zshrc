@@ -180,5 +180,5 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
