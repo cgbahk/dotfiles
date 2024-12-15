@@ -190,7 +190,7 @@
 	AAAAAAAAAAAAAADP
 	</data>
 	<key>FontAntialias</key>
-	<false/>
+	<true/>
 	<key>FontHeightSpacing</key>
 	<integer>1</integer>
 	<key>FontWidthSpacing</key>
