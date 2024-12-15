@@ -195,8 +195,6 @@
 	<integer>1</integer>
 	<key>FontWidthSpacing</key>
 	<real>0.9</real>
-	<key>ProfileCurrentVersion</key>
-	<integer>1</integer>
 	<key>ScrollbackLines</key>
 	<integer>1024</integer>
 	<key>SelectionColor</key>
