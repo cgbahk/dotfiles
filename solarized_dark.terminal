@@ -210,10 +210,14 @@
 	<integer>1</integer>
 	<key>ShouldRestoreContent</key>
 	<false/>
+	<key>ShowActiveProcessArgumentsInTabTitle</key>
+	<true/>
 	<key>ShowActiveProcessInTabTitle</key>
-	<false/>
+	<true/>
 	<key>ShowActiveProcessInTitle</key>
 	<false/>
+	<key>ShowComponentsWhenTabHasCustomTitle</key>
+	<true/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
 	<key>ShowRepresentedURLInTabTitle</key>
