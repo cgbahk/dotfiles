@@ -1,7 +1,7 @@
 auto_activate_base: false
 
 channels:
-  - defaults
+  - nodefaults  # Recommended by https://mamba.readthedocs.io/en/latest/user_guide/troubleshooting.html#defaults-channels
   - conda-forge
 
 channel_priority: strict
