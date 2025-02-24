@@ -139,6 +139,8 @@ function append_ntfy_ignore()
 # Most ntfy ignore list becomes not required by https://github.com/cgbahk/ntfy/pull/2
 append_ntfy_ignore tmux
 append_ntfy_ignore ssh
+append_ntfy_ignore vim
+append_ntfy_ignore vi
 
 # conda initialization
 #
