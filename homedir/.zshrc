@@ -126,7 +126,7 @@ compinit
 
 # ntfy config
 if [ -x "$(command -v ntfy)" ]; then
-  eval "$(ntfy shell-integration -L1)"
+  eval "$(ntfy shell-integration --longer-than 1)"
 fi
 
 AUTO_NTFY_DONE_IGNORE=""
