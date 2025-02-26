@@ -380,10 +380,6 @@ stderred()
   $@ 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" >&2; done)
 }
 
-# This was helpful: https://stackoverflow.com/a/1489935/4214521
-export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
-export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
-
 cdtemp()
 {
   local KEYWORD=$1

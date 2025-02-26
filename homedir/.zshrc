@@ -182,5 +182,9 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# This was helpful: https://stackoverflow.com/a/1489935/4214521
+export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
+export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
