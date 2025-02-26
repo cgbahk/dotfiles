@@ -384,8 +384,6 @@ stderred()
 export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
 export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
 
-export PATH=$PATH:${HOME}/go/bin
-
 cdtemp()
 {
   local KEYWORD=$1
