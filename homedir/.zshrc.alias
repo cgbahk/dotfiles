@@ -212,6 +212,13 @@ gitdifftobase()
   git diff ${merge_base}..HEAD
 }
 
+issue()
+{
+  local url=$1
+  local issue_no="${url##*/}"
+  hub issue update --edit $issue_no
+}
+
 
 ######################################################################
 # grep & find
