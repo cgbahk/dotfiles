@@ -1446,6 +1446,8 @@
 	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
+	<key>ViewManPageCommand</key>
+	<string>;</string>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>findMode_iTerm</key>
