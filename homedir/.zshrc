@@ -51,7 +51,7 @@ plugins=(\
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Override prompt style provided by agnoster theme
 # 
