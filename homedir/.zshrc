@@ -53,6 +53,11 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 
+if command -v nvim >/dev/null 2>&1; then
+    alias vi='nvim'
+    alias vim='nvim'
+fi
+
 # Override prompt style provided by agnoster theme
 # 
 # For detail check: '.oh-my-zsh/themes/agnoster.zsh-theme'
