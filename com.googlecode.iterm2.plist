@@ -1432,6 +1432,8 @@
 	</dict>
 	<key>ShowNewOutputIndicator</key>
 	<false/>
+	<key>ShowSecureKeyboardEntryIndicator</key>
+	<false/>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SoundForEsc</key>
