@@ -148,17 +148,7 @@ append_ntfy_ignore vim
 append_ntfy_ignore vi
 
 # mamba initialize
-# Based on 'mamba shell init'
-export MAMBA_EXE=$(realpath $HOME/miniforge3/bin/mamba);
-export MAMBA_ROOT_PREFIX=$(realpath $HOME/miniforge3);
-
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias mamba="$MAMBA_EXE"
-fi
-unset __mamba_setup
+eval "$(cat ~/.zshrc.local.mamba)"
 
 CONDA_ENV_DIR="./conda.env"
 if [[ -d ${CONDA_ENV_DIR} ]]; then
