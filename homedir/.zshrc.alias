@@ -452,3 +452,8 @@ EOF
     echo "${require_list_path} generated"
   fi
 }
+
+report_path()
+{
+  echo $PATH | awk -F ':' 'BEGIN { OFS="\n"}; {$1=$1; print $0}'
+}
