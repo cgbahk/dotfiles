@@ -400,8 +400,8 @@ case ${OS_NAME} in
     cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd | xclip -sel clip
     ;;
   Darwin)
-    # TODO Copy directory to clipboard like linux version
-    cd $(mktemp -d -t ${KEYWORD})
+    # `printf` is to trim whitespaces around `pwd`
+    cd $(mktemp -d -t ${KEYWORD}) && printf "%s" "$(pwd)" | pbcopy
     ;;
   *)
     echo "ERROR: Unknown os: ${OS_NAME}"
