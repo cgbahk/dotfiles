@@ -394,19 +394,19 @@ cdtemp()
     KEYWORD='default'
   fi
 
-local OS_NAME=$(uname 2> /dev/null)
-case ${OS_NAME} in
-  Linux)
-    cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd | xclip -sel clip
-    ;;
-  Darwin)
-    # `printf` is to trim whitespaces around `pwd`
-    cd $(mktemp -d -t ${KEYWORD}) && printf "%s" "$(pwd)" | pbcopy
-    ;;
-  *)
-    echo "ERROR: Unknown os: ${OS_NAME}"
-    return 1
-esac
+  local OS_NAME=$(uname 2> /dev/null)
+  case ${OS_NAME} in
+    Linux)
+      cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd | xclip -sel clip
+      ;;
+    Darwin)
+      # `printf` is to trim whitespaces around `pwd`
+      cd $(mktemp -d -t ${KEYWORD}) && printf "%s" "$(pwd)" | pbcopy
+      ;;
+    *)
+      echo "ERROR: Unknown os: ${OS_NAME}"
+      return 1
+  esac
 }
 
 make_venv()
