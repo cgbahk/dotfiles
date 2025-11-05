@@ -457,3 +457,15 @@ report_path()
 {
   echo $PATH | awk -F ':' 'BEGIN { OFS="\n"}; {$1=$1; print $0}'
 }
+
+unchatgpt()
+{
+  local PATH_TO_EDIT=$1
+
+  # TODO Checked for macOS, but need to check for linux
+  sed -i '' \
+      -e 's/[[:space:]]*$//' \
+      -e "s/’/'/g" \
+      -e 's/\*//g' \
+      $PATH_TO_EDIT
+}
