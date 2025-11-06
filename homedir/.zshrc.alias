@@ -466,6 +466,8 @@ unchatgpt()
   sed -i '' \
       -e 's/[[:space:]]*$//' \
       -e "s/’/'/g" \
+      -e "s/“/\"/g" \
+      -e "s/”/\"/g" \
       -e 's/\*//g' \
       $PATH_TO_EDIT
 }
