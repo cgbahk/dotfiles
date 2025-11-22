@@ -147,16 +147,6 @@ append_ntfy_ignore ssh
 append_ntfy_ignore vim
 append_ntfy_ignore vi
 
-# mamba initialize
-eval "$(cat ~/.zshrc.local.mamba)"
-
-CONDA_ENV_DIR="./conda.env"
-if [[ -d ${CONDA_ENV_DIR} ]]; then
-  conda activate ${CONDA_ENV_DIR}
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # This was helpful: https://stackoverflow.com/a/1489935/4214521
 export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
 export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
