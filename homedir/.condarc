@@ -1,10 +1,1 @@
 auto_activate_base: false
-
-# TODO Remove these lines
-# Using miniforge, it seems okay not to explicitly rule these:
-# 
-# channels:
-#   - nodefaults  # Recommended by https://mamba.readthedocs.io/en/latest/user_guide/troubleshooting.html#defaults-channels
-#   - conda-forge
-# 
-# channel_priority: strict
