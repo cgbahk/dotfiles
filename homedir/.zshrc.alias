@@ -378,6 +378,13 @@ ghrefer()
   cat ${CONTENTS} | xclip -sel clip
 }
 
+ghsshclone()
+{
+  local repo_url=$1; shift
+  local repo_path=$(echo "$repo_url" | sed -E 's_https?://github\.com/([^/]+/[^/]+).*_\1_')
+  gh repo clone "$repo_path"
+}
+
 
 ######################################################################
 # etc.
