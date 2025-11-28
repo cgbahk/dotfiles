@@ -151,6 +151,9 @@ append_ntfy_ignore vi
 export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
 export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
 
+# ruff
+export RUFF_NO_CACHE=true
+
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 
 # Things to add in local setting
