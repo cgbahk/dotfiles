@@ -129,7 +129,23 @@ fi
 autoload -Uz compinit
 compinit
 
+# This was helpful: https://stackoverflow.com/a/1489935/4214521
+export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
+export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
+
+# ruff
+export RUFF_NO_CACHE=true
+
+[ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
+
+# Things to add in local setting
+# - source fzf key binding file for zsh
+# - mamba or conda setting
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 # ntfy config
+#
+# Add this after sourcing local setting, for possible PATH addition
 if [ -x "$(command -v ntfy)" ]; then
   eval "$(ntfy shell-integration --longer-than 1)"
 fi
@@ -146,17 +162,3 @@ append_ntfy_ignore tmux
 append_ntfy_ignore ssh
 append_ntfy_ignore vim
 append_ntfy_ignore vi
-
-# This was helpful: https://stackoverflow.com/a/1489935/4214521
-export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
-export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
-
-# ruff
-export RUFF_NO_CACHE=true
-
-[ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
-
-# Things to add in local setting
-# - source fzf key binding file for zsh
-# - mamba or conda setting
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
