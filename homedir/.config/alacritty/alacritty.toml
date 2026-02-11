@@ -7,5 +7,5 @@ hide_when_typing = true
 [selection]
 save_to_clipboard = true
 
-[colors.primary]
-background = "#222222"
+[general]
+import = ["~/.config/alacritty/theme/ayu_light.toml"]
