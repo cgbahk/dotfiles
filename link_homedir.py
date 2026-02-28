@@ -12,7 +12,7 @@ def main():
         relative_path = source_path.relative_to(source_home_dir)
         target_path = Path.home() / relative_path
 
-        if target_path.exists():
+        if target_path.exists(follow_symlinks=False):
             assert target_path.is_symlink()
             assert target_path.resolve() == source_path.resolve()
             print(f"{relative_path}\t: Already exists")
