@@ -385,6 +385,22 @@ ghsshclone()
   gh repo clone "$repo_path"
 }
 
+hh() {
+    local url="$1"
+    local issue_number="${url##*/}"
+
+    # Hard-coded
+    local server_address=$(mktemp --dry-run)
+    local git_editor="nvim --listen ${server_address}"
+
+    (
+        sleep 300
+        nvim --server "$server_address" --remote-send '<C-\><C-N>:wqa<CR>'
+    ) &
+
+    GIT_EDITOR=${git_editor} hub issue update --edit "$issue_number"
+}
+
 
 ######################################################################
 # etc.
