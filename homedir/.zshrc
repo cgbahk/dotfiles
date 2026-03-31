@@ -133,13 +133,16 @@ compinit
 export FZF_DEFAULT_COMMAND='find -L . -type d \( -name .git -o -name venv -o -name conda.env \) -prune -o -print'
 export FZF_DEFAULT_OPTS='--height 1% --layout=reverse -m'
 
+if command -v fzf &>/dev/null; then
+  source <(fzf --zsh)
+fi
+
 # ruff
 export RUFF_NO_CACHE=true
 
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 
 # Things to add in local setting
-# - source fzf key binding file for zsh
 # - mamba or conda setting
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
