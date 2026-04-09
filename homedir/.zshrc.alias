@@ -394,7 +394,7 @@ hh() {
     local git_editor="nvim --listen ${server_address}"
 
     (
-        sleep 300
+        sleep 1600
         nvim --server "$server_address" --remote-send '<C-\><C-N>:wqa<CR>'
     ) &
 
