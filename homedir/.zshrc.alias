@@ -420,11 +420,11 @@ cdtemp()
   local OS_NAME=$(uname 2> /dev/null)
   case ${OS_NAME} in
     Linux)
-      cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd | xclip -sel clip
+      cd $(mktemp -d --tmpdir ${KEYWORD}.XXX) && pwd
       ;;
     Darwin)
       # `printf` is to trim whitespaces around `pwd`
-      cd $(mktemp -d -t ${KEYWORD}) && printf "%s" "$(pwd)" | pbcopy
+      cd $(mktemp -d -t ${KEYWORD}) && printf "%s" "$(pwd)"
       ;;
     *)
       echo "ERROR: Unknown os: ${OS_NAME}"
