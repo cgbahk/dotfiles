@@ -140,6 +140,8 @@ fi
 # ruff
 export RUFF_NO_CACHE=true
 
+[ -x /usr/local/go/bin/go ] && export PATH=$PATH:/usr/local/go/bin
+
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 
 # Things to add in local setting
