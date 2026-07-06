@@ -140,6 +140,7 @@ fi
 # ruff
 export RUFF_NO_CACHE=true
 
+# Official location of golang for linux
 [ -x /usr/local/go/bin/go ] && export PATH=$PATH:/usr/local/go/bin
 
 [ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
