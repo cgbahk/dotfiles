@@ -31,6 +31,42 @@ function docker_cleanup()
 # git alias
 # TODO Move git alias into git's alias, e.g. git hub / git clear
 
+gitstatus() {
+    # ANSI escape codes
+    local BOLD='\033[1m'
+    local GREEN='\033[0;32m'
+    local NC='\033[0m' # No Color
+
+    # Check if there are any changes at all
+    if git diff --quiet && git diff --cached --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+        echo -e "${GREEN}Working tree clean${NC}"
+        return
+    fi
+
+    # Staged changes
+    if ! git diff --cached --quiet; then
+        echo -e "${BOLD}📦 Staged changes:${NC}"
+        git diff --cached --stat --color
+        echo
+    fi
+
+    # Modified files
+    if ! git diff --quiet; then
+        echo -e "${BOLD}📝 Modified files:${NC}"
+        git diff --stat --color
+        echo
+    fi
+
+    # Untracked files
+    local untracked=$(git ls-files --others --exclude-standard)
+    if [ -n "$untracked" ]; then
+        echo -e "${BOLD}🌱 Untracked files:${NC}"
+        echo "$untracked" | sed 's/^/  - /'
+        echo
+    fi
+}
+
+
 # OPTIONAL ARG
 # - fallback branch name
 get_main_branch_name()
