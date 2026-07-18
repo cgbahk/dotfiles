@@ -1,47 +1,47 @@
 [core]
-  editor = nvim
-  pager = delta
+	editor = nvim
+	pager = delta
 
 [user]
-  name = Cheongyo Bahk
-  email = cg.bahk@gmail.com
+	name = Cheongyo Bahk
+	email = cg.bahk@gmail.com
 
 [alias]
-  co = checkout
+	co = checkout
 
 [diff]
-  tool = vimdiff
+	tool = vimdiff
 
 [pull]
-  ff = only
+	ff = only
 
 [grep]
-  lineNumber = true
+	lineNumber = true
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [delta]
-  features = side-by-side line-numbers decorations
-  whitespace-error-style = 22 reverse
-  syntax-theme = Solarized (dark)
-  wrap-max-lines = unlimited
+	features = side-by-side line-numbers decorations
+	whitespace-error-style = 22 reverse
+	syntax-theme = Solarized (dark)
+	wrap-max-lines = unlimited
 
 [delta "decorations"]
-  commit-decoration-style = bold yellow box ul
-  file-style = bold
-  file-decoration-style = box
-  hunk-header-decoration-style = none
+	commit-decoration-style = bold yellow box ul
+	file-style = bold
+	file-decoration-style = box
+	hunk-header-decoration-style = none
 
 # Q. What does these mean?
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [credential]
-  helper = cache --timeout=36000
+	helper = cache --timeout=36000
