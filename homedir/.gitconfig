@@ -1,6 +1,7 @@
 [core]
 	editor = nvim
 	pager = delta
+    hooksPath = .githooks
 
 [user]
 	name = Cheongyo Bahk
