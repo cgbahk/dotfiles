@@ -43,13 +43,6 @@ gitstatus() {
         return
     fi
 
-    # Staged changes
-    if ! git diff --cached --quiet; then
-        echo -e "${BOLD}📦 Staged changes:${NC}"
-        git diff --cached --stat --color
-        echo
-    fi
-
     # Modified files
     if ! git diff --quiet; then
         echo -e "${BOLD}📝 Modified files:${NC}"
@@ -62,6 +55,13 @@ gitstatus() {
     if [ -n "$untracked" ]; then
         echo -e "${BOLD}🌱 Untracked files:${NC}"
         echo "$untracked" | sed 's/^/  - /'
+        echo
+    fi
+
+    # Staged changes
+    if ! git diff --cached --quiet; then
+        echo -e "${BOLD}📦 Staged changes:${NC}"
+        git diff --cached --stat --color
         echo
     fi
 }
