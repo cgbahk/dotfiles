@@ -173,6 +173,3 @@ append_ntfy_ignore ssh
 append_ntfy_ignore vim
 append_ntfy_ignore vi
 append_ntfy_ignore hh
-
-# OpenClaw Completion
-[ -f "/Users/cgbahk/.openclaw/completions/openclaw.zsh" ] && source "/Users/cgbahk/.openclaw/completions/openclaw.zsh"
