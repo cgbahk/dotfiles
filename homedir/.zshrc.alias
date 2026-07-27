@@ -324,7 +324,7 @@ vimchanged()
 {
   # TODO Cannot deal with path with whitespace
   local gitroot=$(git rev-parse --show-toplevel)
-  vim -p1 $(git status --porcelain | sed s%^...%${gitroot}/%)
+  vim -p1 $(git status --porcelain | sed s%^...%${gitroot}/%) -c "let g:gitgutter_diff_base='HEAD'"
 }
 
 vimcommit()
