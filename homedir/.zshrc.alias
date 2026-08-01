@@ -533,3 +533,24 @@ unchatgpt()
       -e 's/\*//g' \
       $PATH_TO_EDIT
 }
+
+# OSC 52 copy function
+clip() {
+  local input
+
+  if [ -t 0 ]; then
+    # stdin is a terminal → use arguments
+    [ $# -eq 0 ] && { echo "Usage: clip <text> or echo text | clip"; return 1; }
+    input="$*"
+  else
+    # stdin is piped
+    input=$(cat)
+    [ -z "$input" ] && { echo "Nothing to copy."; return 1; }
+  fi
+
+  local encoded
+  encoded=$(printf '%s' "$input" | base64 | tr -d '\n')
+
+  # \e = ESC (0x1B), \a = BEL (0x07) → both valid OSC terminators
+  printf '\e]52;c;%s\a' "$encoded"
+}
