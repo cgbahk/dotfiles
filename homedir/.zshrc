@@ -76,6 +76,7 @@ prompt_end() {
   fi
   echo -n "%{%f%}"
   CURRENT_BG=''
+  echo "\n>"
 }
 
 prompt_git_() {
