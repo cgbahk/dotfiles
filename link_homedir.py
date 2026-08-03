@@ -13,8 +13,11 @@ def main():
         target_path = Path.home() / relative_path
 
         if target_path.exists(follow_symlinks=False):
-            assert target_path.is_symlink()
-            assert target_path.resolve() == source_path.resolve()
+            already_exists_as_link = target_path.is_symlink() and (target_path.resolve() == source_path.resolve())
+
+            if not already_exists_as_link:
+                raise RuntimeError(f"STOP and CHECK: {target_path}")
+
             print(f"{relative_path}\t: Already exists")
             continue
 
