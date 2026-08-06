@@ -554,3 +554,19 @@ clip() {
   # \e = ESC (0x1B), \a = BEL (0x07) → both valid OSC terminators
   printf '\e]52;c;%s\a' "$encoded"
 }
+
+my_sshfs() {
+    local_mount_root=~/sshfs_root
+    local remote_name=$1
+    local remote_dir=$2
+
+    if [[ ! $remote_dir = /* ]]; then
+        echo "Error: remote_dir must be an absolute path (start with /)"
+        return 1
+    fi
+    
+    local local_mount_dir=${local_mount_root}/${remote_name}${remote_dir}
+
+    mkdir -p ${local_mount_dir}
+    sshfs -f -o ro hpc_gwdg:${remote_dir} ${local_mount_dir}
+}
