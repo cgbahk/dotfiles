@@ -369,6 +369,12 @@ vimtobase()
   vim -c "let g:gitgutter_diff_base='${merge_base}'" -p1 $(git log --name-only --format="" ${merge_base}..HEAD | sort | uniq)
 }
 
+# quickfix grep
+qg()
+{
+    nvim -c "cexpr system('$*')" -c "copen" -c "windo setl nowrap"
+}
+
 
 ######################################################################
 # Github CLI
