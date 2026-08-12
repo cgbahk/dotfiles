@@ -1,2 +1,2 @@
 [build]
-target-dir = "/tmp/rust-target"
+target-dir = "/tmp/rust_target"
