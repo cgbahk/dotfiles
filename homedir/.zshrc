@@ -76,6 +76,7 @@ prompt_end() {
   fi
   echo -n "%{%f%}"
   CURRENT_BG=''
+  echo -n " %D{%R}"
   echo "\n>"
 }
 
@@ -94,8 +95,6 @@ build_prompt() {
   # prompt_context  # This removed
   prompt_dir
   prompt_git_  # post-processed
-  prompt_bzr
-  prompt_hg
   prompt_end
 }
 
