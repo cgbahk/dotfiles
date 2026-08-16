@@ -574,5 +574,5 @@ my_sshfs() {
     local local_mount_dir=${local_mount_root}/${remote_name}${remote_dir}
 
     mkdir -p ${local_mount_dir}
-    sshfs -f -o ro hpc_gwdg:${remote_dir} ${local_mount_dir}
+    sshfs -f -o ro ${remote_name}:${remote_dir} ${local_mount_dir}
 }
