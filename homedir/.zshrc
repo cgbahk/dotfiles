@@ -167,9 +167,9 @@ function append_ntfy_ignore()
   export AUTO_NTFY_DONE_IGNORE="${AUTO_NTFY_DONE_IGNORE} ${arg}"
 }
 
-# Most ntfy ignore list becomes not required by https://github.com/cgbahk/ntfy/pull/2
 append_ntfy_ignore tmux
 append_ntfy_ignore ssh
 append_ntfy_ignore vim
 append_ntfy_ignore vi
 append_ntfy_ignore hh
+append_ntfy_ignore true  # Use this to suppress ntfy intensionally
