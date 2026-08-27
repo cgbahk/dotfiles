@@ -372,7 +372,8 @@ vimtobase()
 # quickfix grep
 qg()
 {
-    nvim -c "cexpr system('$*')" -c "copen" -c "windo setl nowrap"
+    local cmd=$(printf '%q ' "$@")
+    nvim -c "cexpr system('$cmd')" -c "copen" -c "windo setl nowrap"
 }
 
 
