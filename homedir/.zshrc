@@ -51,6 +51,8 @@ plugins=(\
 
 source $ZSH/oh-my-zsh.sh
 
+disable -r time
+
 export EDITOR='nvim'
 
 if command -v nvim >/dev/null 2>&1; then
