@@ -577,3 +577,22 @@ my_sshfs() {
     mkdir -p ${local_mount_dir}
     sshfs -f -o ro ${remote_name}:${remote_dir} ${local_mount_dir}
 }
+
+remote_command_fzf_copy() {
+    local remote_host=$1
+    local selected
+
+    selected=$(
+        ssh -T "$remote_host" \
+            'zsh -fc '\''
+        HISTFILE="$HOME/.zsh_history"
+        HISTSIZE=1000000
+        fc -R
+        fc -lnr 1
+        '\'' ' |
+            fzf --scheme=history \
+            --query="$LBUFFER"
+        )
+
+        echo $selected
+}
