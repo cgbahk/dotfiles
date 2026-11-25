@@ -174,4 +174,5 @@ append_ntfy_ignore ssh
 append_ntfy_ignore vim
 append_ntfy_ignore vi
 append_ntfy_ignore hh
+append_ntfy_ignore 3hwatch
 append_ntfy_ignore true  # Use this to suppress ntfy intensionally

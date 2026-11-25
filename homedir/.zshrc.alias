@@ -596,3 +596,7 @@ remote_command_fzf_copy() {
 
         echo $selected
 }
+
+3hwatch() {
+    timeout --preserve-status --kill-after=30s 3h watch "$@"
+}
