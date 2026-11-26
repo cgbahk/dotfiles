@@ -600,3 +600,20 @@ remote_command_fzf_copy() {
 3hwatch() {
     timeout --preserve-status --kill-after=30s 3h watch "$@"
 }
+
+format_rusts() {
+  local manifest rel failed=0 total=0
+
+  while IFS= read -r -d '' manifest; do
+    rel="${manifest#./}"
+    total=$((total + 1))
+    echo "$rel"
+    if ! cargo +nightly fmt --manifest-path "$manifest"; then
+      echo "!! failed: $rel" >&2
+      failed=$((failed + 1))
+    fi
+  done < <(find . \( -name target -o -name .git \) -prune -o -name Cargo.toml -type f -print0 | sort -z)
+
+  echo "Done: $total manifest(s), $failed failed."
+  [ "$failed" -eq 0 ]
+}
