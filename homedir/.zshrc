@@ -94,7 +94,9 @@ build_prompt() {
   prompt_status
   prompt_virtualenv
   prompt_aws
-  # prompt_context  # This removed
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    prompt_context
+  fi
   prompt_dir
   prompt_git_  # post-processed
   prompt_end
