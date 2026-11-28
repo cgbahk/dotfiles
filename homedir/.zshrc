@@ -172,7 +172,6 @@ function append_ntfy_ignore()
 }
 
 append_ntfy_ignore tmux
-append_ntfy_ignore ssh
 append_ntfy_ignore vim
 append_ntfy_ignore vi
 append_ntfy_ignore hh
